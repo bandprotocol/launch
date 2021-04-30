@@ -1,0 +1,245 @@
+{
+  "genesis_time": "2021-04-30T07:16:05.237960438Z",
+  "chain_id": "band-guanyu-testnet4",
+  "consensus_params": {
+    "block": {
+      "max_bytes": "1000000",
+      "max_gas": "5000000",
+      "time_iota_ms": "1000"
+    },
+    "evidence": {
+      "max_age_num_blocks": "100000",
+      "max_age_duration": "172800000000000"
+    },
+    "validator": {
+      "pub_key_types": [
+        "secp256k1"
+      ]
+    }
+  },
+  "app_hash": "",
+  "app_state": {
+    "mint": {
+      "minter": {
+        "inflation": "0.130000000000000000",
+        "annual_provisions": "0.000000000000000000"
+      },
+      "params": {
+        "mint_denom": "uband",
+        "inflation_rate_change": "0.130000000000000000",
+        "inflation_max": "0.200000000000000000",
+        "inflation_min": "0.070000000000000000",
+        "goal_bonded": "0.670000000000000000",
+        "blocks_per_year": "10519200"
+      }
+    },
+    "evidence": {
+      "params": {
+        "max_evidence_age": "120000000000"
+      },
+      "evidence": []
+    },
+    "upgrade": {},
+    "crisis": {
+      "constant_fee": {
+        "denom": "uband",
+        "amount": "10000000000"
+      }
+    },
+    "oracle": {
+      "params": {
+        "max_raw_request_count": "12",
+        "max_ask_count": "16",
+        "expiration_block_count": "100",
+        "base_request_gas": "150000",
+        "per_validator_request_gas": "30000",
+        "sampling_try_count": "3",
+        "oracle_reward_percentage": "70",
+        "inactive_penalty_duration": "600000000000"
+      },
+      "data_sources": [],
+      "oracle_scripts": []
+    },
+    "bank": {
+      "send_enabled": true
+    },
+    "distribution": {
+      "params": {
+        "community_tax": "0.020000000000000000",
+        "base_proposer_reward": "0.030000000000000000",
+        "bonus_proposer_reward": "0.120000000000000000",
+        "withdraw_addr_enabled": true
+      },
+      "fee_pool": {
+        "community_pool": []
+      },
+      "delegator_withdraw_infos": [],
+      "previous_proposer": "",
+      "outstanding_rewards": [],
+      "validator_accumulated_commissions": [],
+      "validator_historical_rewards": [],
+      "validator_current_rewards": [],
+      "delegator_starting_infos": [],
+      "validator_slash_events": []
+    },
+    "supply": {
+      "supply": []
+    },
+    "auth": {
+      "params": {
+        "max_memo_characters": "256",
+        "tx_sig_limit": "7",
+        "tx_size_cost_per_byte": "5",
+        "sig_verify_cost_ed25519": "590",
+        "sig_verify_cost_secp256k1": "1000"
+      },
+      "accounts": [
+        {
+          "type": "cosmos-sdk/Account",
+          "value": {
+            "address": "band1djptvvah5jjm4fxch65ldwqnduwn79kwl3lmt9",
+            "coins": [
+              {
+                "denom": "uband",
+                "amount": "10000000000000"
+              }
+            ],
+            "public_key": null,
+            "account_number": "0",
+            "sequence": "0"
+          }
+        },
+        {
+          "type": "cosmos-sdk/Account",
+          "value": {
+            "address": "band1rw36tk2ja9rgsk4dw2pfewqtq8mr7u34tzuwkv",
+            "coins": [
+              {
+                "denom": "uband",
+                "amount": "10000000000000"
+              }
+            ],
+            "public_key": null,
+            "account_number": "0",
+            "sequence": "0"
+          }
+        },
+        {
+          "type": "cosmos-sdk/Account",
+          "value": {
+            "address": "band1yzjtpm9g7y8lwf7ldxjx0me5khfd0lv3re9rsh",
+            "coins": [
+              {
+                "denom": "uband",
+                "amount": "10000000000000"
+              }
+            ],
+            "public_key": null,
+            "account_number": "0",
+            "sequence": "0"
+          }
+        }
+      ]
+    },
+    "gov": {
+      "starting_proposal_id": "1",
+      "deposits": null,
+      "votes": null,
+      "proposals": null,
+      "deposit_params": {
+        "min_deposit": [
+          {
+            "denom": "uband",
+            "amount": "1000000000"
+          }
+        ],
+        "max_deposit_period": "172800000000000"
+      },
+      "voting_params": {
+        "voting_period": "172800000000000"
+      },
+      "tally_params": {
+        "quorum": "0.334000000000000000",
+        "threshold": "0.500000000000000000",
+        "veto": "0.334000000000000000"
+      }
+    },
+    "staking": {
+      "params": {
+        "unbonding_time": "1814400000000000",
+        "max_validators": 100,
+        "max_entries": 7,
+        "historical_entries": 1000,
+        "bond_denom": "uband"
+      },
+      "last_total_power": "0",
+      "last_validator_powers": null,
+      "validators": null,
+      "delegations": null,
+      "unbonding_delegations": null,
+      "redelegations": null,
+      "exported": false
+    },
+    "slashing": {
+      "params": {
+        "signed_blocks_window": "30000",
+        "min_signed_per_window": "0.050000000000000000",
+        "downtime_jail_duration": "600000000000",
+        "slash_fraction_double_sign": "0.050000000000000000",
+        "slash_fraction_downtime": "0.000100000000000000"
+      },
+      "signing_infos": {},
+      "missed_blocks": {}
+    },
+    "genutil": {
+      "gentxs": [
+        {
+          "type": "cosmos-sdk/StdTx",
+          "value": {
+            "msg": [
+              {
+                "type": "cosmos-sdk/MsgCreateValidator",
+                "value": {
+                  "description": {
+                    "moniker": "validator",
+                    "identity": "",
+                    "website": "",
+                    "security_contact": "",
+                    "details": ""
+                  },
+                  "commission": {
+                    "rate": "0.100000000000000000",
+                    "max_rate": "0.200000000000000000",
+                    "max_change_rate": "0.010000000000000000"
+                  },
+                  "min_self_delegation": "1",
+                  "delegator_address": "band1djptvvah5jjm4fxch65ldwqnduwn79kwl3lmt9",
+                  "validator_address": "bandvaloper1djptvvah5jjm4fxch65ldwqnduwn79kwn8mcww",
+                  "pubkey": "bandvalconspub1addwnpepqvh5cunq4zyferawwyplkg5xc4t307xvk0eru99u0632vtrq2uhzzpzu62h",
+                  "value": {
+                    "denom": "uband",
+                    "amount": "100000000"
+                  }
+                }
+              }
+            ],
+            "fee": {
+              "amount": [],
+              "gas": "200000"
+            },
+            "signatures": [
+              {
+                "pub_key": {
+                  "type": "tendermint/PubKeySecp256k1",
+                  "value": "AgCspyWBZ7vXfOg9BG4NkQ1sieIwtXSI4uSbMG2dxBRb"
+                },
+                "signature": "HpmDYmtXBiC97+w4ViTn/CtDoNhIy5wX5FNKRrpeGLcimonH/G2yAbTqgGxofSPqhDYnvSuJXIs2oMjjOkQX5g=="
+              }
+            ],
+            "memo": "f58490fc15249ac6b2cb5ddb486f18a53cba1128@10.148.0.2:26656"
+          }
+        }
+      ]
+    }
+  }
+}

@@ -1,0 +1,1273 @@
+{
+  "genesis_time": "2021-06-21T09:20:54.765960336Z",
+  "chain_id": "band-laozi-testnet2",
+  "initial_height": "1",
+  "consensus_params": {
+    "block": {
+      "max_bytes": "22020096",
+      "max_gas": "40000000",
+      "time_iota_ms": "1000"
+    },
+    "evidence": {
+      "max_age_num_blocks": "100000",
+      "max_age_duration": "172800000000000",
+      "max_bytes": "1048576"
+    },
+    "validator": { "pub_key_types": ["secp256k1"] },
+    "version": {}
+  },
+  "app_hash": "",
+  "app_state": {
+    "auth": {
+      "params": {
+        "max_memo_characters": "256",
+        "tx_sig_limit": "7",
+        "tx_size_cost_per_byte": "5",
+        "sig_verify_cost_ed25519": "590",
+        "sig_verify_cost_secp256k1": "1000"
+      },
+      "accounts": [
+        {
+          "@type": "/cosmos.auth.v1beta1.BaseAccount",
+          "address": "band17n5rmujk78nkgss7tjecg4nfzn6geg4cvaqt5h",
+          "pub_key": null,
+          "account_number": "0",
+          "sequence": "0"
+        },
+        {
+          "@type": "/cosmos.auth.v1beta1.BaseAccount",
+          "address": "band1e56x9wtnu227uugudpx4vdpf5vxver4qclluc8",
+          "pub_key": null,
+          "account_number": "0",
+          "sequence": "0"
+        },
+        {
+          "@type": "/cosmos.auth.v1beta1.BaseAccount",
+          "address": "band1qxaevudg3r50vxl579uktnkll3wypa66eqqmg4",
+          "pub_key": null,
+          "account_number": "0",
+          "sequence": "0"
+        }
+      ]
+    },
+    "bank": {
+      "params": { "send_enabled": [], "default_send_enabled": true },
+      "balances": [
+        {
+          "address": "band1qxaevudg3r50vxl579uktnkll3wypa66eqqmg4",
+          "coins": [{ "denom": "uband", "amount": "10000000000000" }]
+        },
+        {
+          "address": "band1e56x9wtnu227uugudpx4vdpf5vxver4qclluc8",
+          "coins": [{ "denom": "uband", "amount": "10000000000000" }]
+        },
+        {
+          "address": "band17n5rmujk78nkgss7tjecg4nfzn6geg4cvaqt5h",
+          "coins": [{ "denom": "uband", "amount": "10000000000000" }]
+        }
+      ],
+      "supply": [{ "denom": "uband", "amount": "30000000000000" }],
+      "denom_metadata": []
+    },
+    "capability": { "index": "1", "owners": [] },
+    "crisis": { "constant_fee": { "denom": "uband", "amount": "10000000000" } },
+    "distribution": {
+      "params": {
+        "community_tax": "0.020000000000000000",
+        "base_proposer_reward": "0.030000000000000000",
+        "bonus_proposer_reward": "0.120000000000000000",
+        "withdraw_addr_enabled": true
+      },
+      "fee_pool": { "community_pool": [] },
+      "delegator_withdraw_infos": [],
+      "previous_proposer": "",
+      "outstanding_rewards": [],
+      "validator_accumulated_commissions": [],
+      "validator_historical_rewards": [],
+      "validator_current_rewards": [],
+      "delegator_starting_infos": [],
+      "validator_slash_events": []
+    },
+    "evidence": { "evidence": [] },
+    "genutil": {
+      "gen_txs": [
+        {
+          "body": {
+            "messages": [
+              {
+                "@type": "/cosmos.staking.v1beta1.MsgCreateValidator",
+                "description": {
+                  "moniker": "validator",
+                  "identity": "",
+                  "website": "",
+                  "security_contact": "",
+                  "details": ""
+                },
+                "commission": {
+                  "rate": "0.100000000000000000",
+                  "max_rate": "0.200000000000000000",
+                  "max_change_rate": "0.010000000000000000"
+                },
+                "min_self_delegation": "1",
+                "delegator_address": "band17n5rmujk78nkgss7tjecg4nfzn6geg4cvaqt5h",
+                "validator_address": "bandvaloper17n5rmujk78nkgss7tjecg4nfzn6geg4cqtyg3u",
+                "pubkey": {
+                  "@type": "/cosmos.crypto.secp256k1.PubKey",
+                  "key": "AtwTznHYpjqms4H0MVNDgoAp4kFamZ/dw9cpnlQQV2Ok"
+                },
+                "value": { "denom": "uband", "amount": "100000000" }
+              }
+            ],
+            "memo": "086e812baa8baeb8f33553d78954e9527b062097@10.148.0.20:26656",
+            "timeout_height": "0",
+            "extension_options": [],
+            "non_critical_extension_options": []
+          },
+          "auth_info": {
+            "signer_infos": [
+              {
+                "public_key": {
+                  "@type": "/cosmos.crypto.secp256k1.PubKey",
+                  "key": "A9qmwGJovDDuwOHtdNEAyOgmvStCbNJLL7V4kLWdQQYl"
+                },
+                "mode_info": { "single": { "mode": "SIGN_MODE_DIRECT" } },
+                "sequence": "0"
+              }
+            ],
+            "fee": {
+              "amount": [],
+              "gas_limit": "200000",
+              "payer": "",
+              "granter": ""
+            }
+          },
+          "signatures": [
+            "nDySvfe8qA7yd1A/NLfnC3RYwvkzf44KHwhrynF1MuMpODolTFhEClXvkbS/j9gsX/JwXsESVIqLQRACf4415A=="
+          ]
+        }
+      ]
+    },
+    "gov": {
+      "starting_proposal_id": "1",
+      "deposits": [],
+      "votes": [],
+      "proposals": [],
+      "deposit_params": {
+        "min_deposit": [{ "denom": "uband", "amount": "1000000000" }],
+        "max_deposit_period": "172800s"
+      },
+      "voting_params": { "voting_period": "172800s" },
+      "tally_params": {
+        "quorum": "0.334000000000000000",
+        "threshold": "0.500000000000000000",
+        "veto_threshold": "0.334000000000000000"
+      }
+    },
+    "ibc": {
+      "client_genesis": {
+        "clients": [],
+        "clients_consensus": [],
+        "clients_metadata": [],
+        "params": { "allowed_clients": ["06-solomachine", "07-tendermint"] },
+        "create_localhost": false,
+        "next_client_sequence": "0"
+      },
+      "connection_genesis": {
+        "connections": [],
+        "client_connection_paths": [],
+        "next_connection_sequence": "0"
+      },
+      "channel_genesis": {
+        "channels": [],
+        "acknowledgements": [],
+        "commitments": [],
+        "receipts": [],
+        "send_sequences": [],
+        "recv_sequences": [],
+        "ack_sequences": [],
+        "next_channel_sequence": "0"
+      }
+    },
+    "mint": {
+      "minter": {
+        "inflation": "0.130000000000000000",
+        "annual_provisions": "0.000000000000000000"
+      },
+      "params": {
+        "mint_denom": "uband",
+        "inflation_rate_change": "0.130000000000000000",
+        "inflation_max": "0.200000000000000000",
+        "inflation_min": "0.070000000000000000",
+        "goal_bonded": "0.670000000000000000",
+        "blocks_per_year": "10519200"
+      }
+    },
+    "oracle": {
+      "params": {
+        "max_raw_request_count": "12",
+        "max_ask_count": "16",
+        "expiration_block_count": "100",
+        "base_owasm_gas": "20000",
+        "per_validator_request_gas": "30000",
+        "sampling_try_count": "3",
+        "oracle_reward_percentage": "70",
+        "inactive_penalty_duration": "600000000000",
+        "ibc_request_enabled": true
+      },
+      "data_sources": [
+        {
+          "owner": "band1jfdmjkxs3hvddsf4ef2wmsmte3s5llqhxqgcfe",
+          "name": "DS1",
+          "description": "TBD",
+          "filename": "32ee6262d4a615f2c3ca0589c1c1af79212f24823453cb3f4cfff85b8d338045",
+          "treasury": "band1jfdmjkxs3hvddsf4ef2wmsmte3s5llqhxqgcfe",
+          "fee": []
+        },
+        {
+          "owner": "band1m5lq9u533qaya4q3nfyl6ulzqkpkhge9q8tpzs",
+          "name": "DS2",
+          "description": "DS2",
+          "filename": "9bfcc1bad777159bd977baba5904cdaec8fddf0a5687e38fd1a6a55975681553",
+          "treasury": "band1m5lq9u533qaya4q3nfyl6ulzqkpkhge9q8tpzs",
+          "fee": []
+        },
+        {
+          "owner": "band1m5lq9u533qaya4q3nfyl6ulzqkpkhge9q8tpzs",
+          "name": "Simple random",
+          "description": "test program",
+          "filename": "dc86bb7f2afa7b9b60dfeb181cf6624b1ffd63959b5e28da24a28689ce64ccc5",
+          "treasury": "band1m5lq9u533qaya4q3nfyl6ulzqkpkhge9q8tpzs",
+          "fee": []
+        },
+        {
+          "owner": "band17f6n25na5kume99j4qdfzlf7jnpu9u2neqqvt8",
+          "name": "CryptoCompare Multi",
+          "description": "TBD",
+          "filename": "2373f97db370a97a45e474c448eaeeeaff021a985f12f15ff04b86c5fb4cb8db",
+          "treasury": "band17f6n25na5kume99j4qdfzlf7jnpu9u2neqqvt8",
+          "fee": []
+        },
+        {
+          "owner": "band17f6n25na5kume99j4qdfzlf7jnpu9u2neqqvt8",
+          "name": "CoinGecko Multi",
+          "description": "TBD",
+          "filename": "176c7bff2056e7e45e80629b8c4df3d2d182659335f208cb26461d7bf9efcc97",
+          "treasury": "band17f6n25na5kume99j4qdfzlf7jnpu9u2neqqvt8",
+          "fee": []
+        },
+        {
+          "owner": "band17f6n25na5kume99j4qdfzlf7jnpu9u2neqqvt8",
+          "name": "CCXT Multi",
+          "description": "TBD",
+          "filename": "4292e26d7c98c76b08c3c87d2d18f135f2cbb0c2e4081cab52a7ebeb0740a705",
+          "treasury": "band17f6n25na5kume99j4qdfzlf7jnpu9u2neqqvt8",
+          "fee": []
+        },
+        {
+          "owner": "band17f6n25na5kume99j4qdfzlf7jnpu9u2neqqvt8",
+          "name": "Coinbase Pro Multi",
+          "description": "TBD",
+          "filename": "07be7bd61667327aae10b7a13a542c7dfba31b8f4c52b0b60bf9c7b11b1a72ef",
+          "treasury": "band17f6n25na5kume99j4qdfzlf7jnpu9u2neqqvt8",
+          "fee": []
+        },
+        {
+          "owner": "band17f6n25na5kume99j4qdfzlf7jnpu9u2neqqvt8",
+          "name": "CoinMarketCap Multi",
+          "description": "TBD",
+          "filename": "f713884d621989e6a3cec60ae34b2797ed25ed08bf7fd2aaf02891ba316da8fc",
+          "treasury": "band17f6n25na5kume99j4qdfzlf7jnpu9u2neqqvt8",
+          "fee": []
+        },
+        {
+          "owner": "band17f6n25na5kume99j4qdfzlf7jnpu9u2neqqvt8",
+          "name": "Fixer",
+          "description": "",
+          "filename": "433c2baf18dfeadbb5f243555b9bb01ce58c39389259b206ec2fbe5bd6713aa7",
+          "treasury": "band17f6n25na5kume99j4qdfzlf7jnpu9u2neqqvt8",
+          "fee": []
+        },
+        {
+          "owner": "band17f6n25na5kume99j4qdfzlf7jnpu9u2neqqvt8",
+          "name": "OXR",
+          "description": "",
+          "filename": "eb49b048019b4cffd6e0b2357e5b9755af355909347126a049e40e0fd041d3ec",
+          "treasury": "band17f6n25na5kume99j4qdfzlf7jnpu9u2neqqvt8",
+          "fee": []
+        },
+        {
+          "owner": "band17f6n25na5kume99j4qdfzlf7jnpu9u2neqqvt8",
+          "name": "XE",
+          "description": "",
+          "filename": "107bd32a43a2414ff848ee695aba755ea7c8010c25ed7c84834eda95f381b11a",
+          "treasury": "band17f6n25na5kume99j4qdfzlf7jnpu9u2neqqvt8",
+          "fee": []
+        },
+        {
+          "owner": "band17f6n25na5kume99j4qdfzlf7jnpu9u2neqqvt8",
+          "name": "AlphaVantage",
+          "description": "",
+          "filename": "e1913f3fca59e359f14cae3d23d8bc29e758ac0741bdb0cf5a4c8bb30be07e7d",
+          "treasury": "band17f6n25na5kume99j4qdfzlf7jnpu9u2neqqvt8",
+          "fee": []
+        },
+        {
+          "owner": "band1p32xyvnufce520j6c0gyznheg0ezul4g2sy8rh",
+          "name": "GOAL_SERVE_NFL_ODD",
+          "description": "TBD",
+          "filename": "9a27d3c640aac8b1bde4a829bcb6a9f2eaaec82af327813cc123335bc346acfa",
+          "treasury": "band1p32xyvnufce520j6c0gyznheg0ezul4g2sy8rh",
+          "fee": []
+        },
+        {
+          "owner": "band17f6n25na5kume99j4qdfzlf7jnpu9u2neqqvt8",
+          "name": "IEXCloud",
+          "description": "",
+          "filename": "008ec5777a2b61b7c0c86cceec94672468459731d03877a4bae6f559c85a4980",
+          "treasury": "band17f6n25na5kume99j4qdfzlf7jnpu9u2neqqvt8",
+          "fee": []
+        },
+        {
+          "owner": "band1p32xyvnufce520j6c0gyznheg0ezul4g2sy8rh",
+          "name": "Waves Asset Balance",
+          "description": "TBD",
+          "filename": "c62fabd752ba7828e1349656aca6140e3a2a18a44c7a76eee7d9f2838bdd6acd",
+          "treasury": "band1p32xyvnufce520j6c0gyznheg0ezul4g2sy8rh",
+          "fee": []
+        },
+        {
+          "owner": "band1p32xyvnufce520j6c0gyznheg0ezul4g2sy8rh",
+          "name": "Ethereum ERC20 Balance",
+          "description": "TBD",
+          "filename": "bc063e173b3962e8d4cdda88c622b76107d050e9fa3add9314d24875bdb72cc2",
+          "treasury": "band1p32xyvnufce520j6c0gyznheg0ezul4g2sy8rh",
+          "fee": []
+        },
+        {
+          "owner": "band1p32xyvnufce520j6c0gyznheg0ezul4g2sy8rh",
+          "name": "DS EOB",
+          "description": "TBD",
+          "filename": "0a9f048384cb2be0060c2258446339fde13cb97fc69f5c5ebe14dcf3c939a923",
+          "treasury": "band1p32xyvnufce520j6c0gyznheg0ezul4g2sy8rh",
+          "fee": []
+        },
+        {
+          "owner": "band17f6n25na5kume99j4qdfzlf7jnpu9u2neqqvt8",
+          "name": "Brave New Coin",
+          "description": "",
+          "filename": "c2b071faa3688564bc9b57eb3a554b2c542fffe3b0ab92bcfe7c814260376728",
+          "treasury": "band17f6n25na5kume99j4qdfzlf7jnpu9u2neqqvt8",
+          "fee": []
+        },
+        {
+          "owner": "band17f6n25na5kume99j4qdfzlf7jnpu9u2neqqvt8",
+          "name": "Oil Price",
+          "description": "",
+          "filename": "97fd9e4422ff0e6cb72806c72ccef8f66dd8c4915c3a76a4e36b4eabdaad5329",
+          "treasury": "band17f6n25na5kume99j4qdfzlf7jnpu9u2neqqvt8",
+          "fee": []
+        },
+        {
+          "owner": "band1p32xyvnufce520j6c0gyznheg0ezul4g2sy8rh",
+          "name": "GOAL_SERVE_NFL_SCORE",
+          "description": "TBD",
+          "filename": "1ebbaed31df4b2a9803d1515f12eb33dac12886771d45ac2d9896024ac4277a3",
+          "treasury": "band1p32xyvnufce520j6c0gyznheg0ezul4g2sy8rh",
+          "fee": []
+        },
+        {
+          "owner": "band1p32xyvnufce520j6c0gyznheg0ezul4g2sy8rh",
+          "name": "BTC FEES",
+          "description": "TBD",
+          "filename": "9b7c17cab416a63cd756d32acbc08ff5ae9acc29188926758ac6beab023d085c",
+          "treasury": "band1p32xyvnufce520j6c0gyznheg0ezul4g2sy8rh",
+          "fee": []
+        },
+        {
+          "owner": "band1p32xyvnufce520j6c0gyznheg0ezul4g2sy8rh",
+          "name": "TWAP BINANCE",
+          "description": "TBD",
+          "filename": "8782719aa63866a6129341b17e632865a6e09b6056dfad93875958a168183155",
+          "treasury": "band1p32xyvnufce520j6c0gyznheg0ezul4g2sy8rh",
+          "fee": []
+        },
+        {
+          "owner": "band1p32xyvnufce520j6c0gyznheg0ezul4g2sy8rh",
+          "name": "xangle",
+          "description": "TBD",
+          "filename": "2a5702f194e5bdaa47baa5a2c111b8eef50fe7cd513e564de65f5e88e2e008d4",
+          "treasury": "band1p32xyvnufce520j6c0gyznheg0ezul4g2sy8rh",
+          "fee": []
+        },
+        {
+          "owner": "band1p32xyvnufce520j6c0gyznheg0ezul4g2sy8rh",
+          "name": "xangle",
+          "description": "TBD",
+          "filename": "c225236acaaa7d895e5333501d2d138a6c7d2dee4daa14e6099bb664729227c2",
+          "treasury": "band1p32xyvnufce520j6c0gyznheg0ezul4g2sy8rh",
+          "fee": []
+        },
+        {
+          "owner": "band1d7mm4eqaa9tmuu2l0ch9zwlp8qdhqmv0a8a8c9",
+          "name": "test iex",
+          "description": "test iex",
+          "filename": "008ec5777a2b61b7c0c86cceec94672468459731d03877a4bae6f559c85a4980",
+          "treasury": "band1d7mm4eqaa9tmuu2l0ch9zwlp8qdhqmv0a8a8c9",
+          "fee": []
+        },
+        {
+          "owner": "band1p32xyvnufce520j6c0gyznheg0ezul4g2sy8rh",
+          "name": "DERIBIT_ATM_IV",
+          "description": "TBD",
+          "filename": "caca49fe7d97de5d9f60719b233bea04b86fde010a79964818dc34f8a0ee1d30",
+          "treasury": "band1p32xyvnufce520j6c0gyznheg0ezul4g2sy8rh",
+          "fee": []
+        },
+        {
+          "owner": "band1w8mmcw6y6gsptyae6zwl67t3cccxvnnwlmfkdj",
+          "name": "test-host-datasource",
+          "description": "this is test script from dv",
+          "filename": "259ba8a220500e8e1fea556765512743de3e949ce810d973189bf1fcf94ece1b",
+          "treasury": "band1w8mmcw6y6gsptyae6zwl67t3cccxvnnwlmfkdj",
+          "fee": []
+        },
+        {
+          "owner": "band1w8mmcw6y6gsptyae6zwl67t3cccxvnnwlmfkdj",
+          "name": "usd/thb exchange rate",
+          "description": "The script query exchange rate from Bank of Thailand API",
+          "filename": "057420bf06085715ebc98c3ce0b9f3cb83bb3f39756fd195ec8b3a6165c17870",
+          "treasury": "band1w8mmcw6y6gsptyae6zwl67t3cccxvnnwlmfkdj",
+          "fee": []
+        },
+        {
+          "owner": "band1w8mmcw6y6gsptyae6zwl67t3cccxvnnwlmfkdj",
+          "name": "usd/thb exchange rate",
+          "description": "The script query exchange rate from Bank of Thailand API",
+          "filename": "19707904b0f150093d7d1107281289a0359320890cf05a7a31059055e4878bb0",
+          "treasury": "band1w8mmcw6y6gsptyae6zwl67t3cccxvnnwlmfkdj",
+          "fee": []
+        },
+        {
+          "owner": "band1w8mmcw6y6gsptyae6zwl67t3cccxvnnwlmfkdj",
+          "name": "usd/thb exchange rate",
+          "description": "The script query exchange rate from Bank of Thailand API",
+          "filename": "72700b2682d3bfdea933841937ebf4322eb581087eedccb58a5119ba537a6644",
+          "treasury": "band1w8mmcw6y6gsptyae6zwl67t3cccxvnnwlmfkdj",
+          "fee": []
+        },
+        {
+          "owner": "band1p32xyvnufce520j6c0gyznheg0ezul4g2sy8rh",
+          "name": "SECONDARY_PRICE",
+          "description": "TBD",
+          "filename": "b39a939e79fa6f3402923f64cc8ff1aafaf2b8ae250cb048f8280d3279e81020",
+          "treasury": "band1p32xyvnufce520j6c0gyznheg0ezul4g2sy8rh",
+          "fee": []
+        },
+        {
+          "owner": "band1p32xyvnufce520j6c0gyznheg0ezul4g2sy8rh",
+          "name": "L_XBCI",
+          "description": "TBD",
+          "filename": "6f0b11cdf08562797e0c839e78489a685bdf1fe7ac5dde3445ff730708780f79",
+          "treasury": "band1p32xyvnufce520j6c0gyznheg0ezul4g2sy8rh",
+          "fee": []
+        },
+        {
+          "owner": "band1p32xyvnufce520j6c0gyznheg0ezul4g2sy8rh",
+          "name": "L_INDEX_1",
+          "description": "TBD",
+          "filename": "ad913c1016c591ef9e2790ccba0961591942d4938b155a266e20962faeeaa28a",
+          "treasury": "band1p32xyvnufce520j6c0gyznheg0ezul4g2sy8rh",
+          "fee": []
+        },
+        {
+          "owner": "band1p32xyvnufce520j6c0gyznheg0ezul4g2sy8rh",
+          "name": "L_INDEX_2",
+          "description": "TBD",
+          "filename": "2732d5e5e85a9a1f2e59faf03b8ef3c0a811bebc1c1e80a091ffbd85ecd866eb",
+          "treasury": "band1p32xyvnufce520j6c0gyznheg0ezul4g2sy8rh",
+          "fee": []
+        },
+        {
+          "owner": "band1p32xyvnufce520j6c0gyznheg0ezul4g2sy8rh",
+          "name": "L_INDEX_3",
+          "description": "TBD",
+          "filename": "baeb996dced26227246aec1c862ea7586f9d65225ff168cc16edf530ecce1113",
+          "treasury": "band1p32xyvnufce520j6c0gyznheg0ezul4g2sy8rh",
+          "fee": []
+        },
+        {
+          "owner": "band1p32xyvnufce520j6c0gyznheg0ezul4g2sy8rh",
+          "name": "L_INDEX_4",
+          "description": "TBD",
+          "filename": "7b299bc595679cf9936fd2b559b6f9df25e53d7d96f240bb305fc7aaaaec512d",
+          "treasury": "band1p32xyvnufce520j6c0gyznheg0ezul4g2sy8rh",
+          "fee": []
+        },
+        {
+          "owner": "band1p32xyvnufce520j6c0gyznheg0ezul4g2sy8rh",
+          "name": "L_INDEX_5",
+          "description": "TBD",
+          "filename": "bc146511f84f51cfbc676cda3e1fc5654765b9abd3938a0faee442d8931b0410",
+          "treasury": "band1p32xyvnufce520j6c0gyznheg0ezul4g2sy8rh",
+          "fee": []
+        },
+        {
+          "owner": "band1p32xyvnufce520j6c0gyznheg0ezul4g2sy8rh",
+          "name": "L_INDEX_6",
+          "description": "TBD",
+          "filename": "a38fdb2268f2c738d8f877f7e74048c591d6be5967ba5d3d3885ad81e794a0cb",
+          "treasury": "band1p32xyvnufce520j6c0gyznheg0ezul4g2sy8rh",
+          "fee": []
+        },
+        {
+          "owner": "band1p32xyvnufce520j6c0gyznheg0ezul4g2sy8rh",
+          "name": "L_INDEX_7",
+          "description": "TBD",
+          "filename": "95590cf155b02856f540825b2da355fa9f7bceaceb1af5d7a21dbdf8d760aac5",
+          "treasury": "band1p32xyvnufce520j6c0gyznheg0ezul4g2sy8rh",
+          "fee": []
+        },
+        {
+          "owner": "band1p32xyvnufce520j6c0gyznheg0ezul4g2sy8rh",
+          "name": "L_INDEX_8",
+          "description": "TBD",
+          "filename": "129d5575a8c1ae9d9c471de7791ac96437d41069a441f9bbfdb5ef1decbe5284",
+          "treasury": "band1p32xyvnufce520j6c0gyznheg0ezul4g2sy8rh",
+          "fee": []
+        },
+        {
+          "owner": "band1p32xyvnufce520j6c0gyznheg0ezul4g2sy8rh",
+          "name": "L_INDEX_9",
+          "description": "TBD",
+          "filename": "be22e08c31ef2f0d238ee675bb95d87e49b9280ae412c37b3869c1e20d3bb123",
+          "treasury": "band1p32xyvnufce520j6c0gyznheg0ezul4g2sy8rh",
+          "fee": []
+        },
+        {
+          "owner": "band1p32xyvnufce520j6c0gyznheg0ezul4g2sy8rh",
+          "name": "L_INDEX_10",
+          "description": "TBD",
+          "filename": "d80d62277187c731d27f6fe5b377dead8a2b22986dd5b30e577c2f311da42e3e",
+          "treasury": "band1p32xyvnufce520j6c0gyznheg0ezul4g2sy8rh",
+          "fee": []
+        },
+        {
+          "owner": "band1p32xyvnufce520j6c0gyznheg0ezul4g2sy8rh",
+          "name": "L_INDEX_11",
+          "description": "TBD",
+          "filename": "cd8f1933b4a70d854c795bce9dc7f46e5b1264b1f528ab012cd6bf93614ea304",
+          "treasury": "band1p32xyvnufce520j6c0gyznheg0ezul4g2sy8rh",
+          "fee": []
+        },
+        {
+          "owner": "band1p32xyvnufce520j6c0gyznheg0ezul4g2sy8rh",
+          "name": "L_INDEX_12",
+          "description": "TBD",
+          "filename": "cd8f1933b4a70d854c795bce9dc7f46e5b1264b1f528ab012cd6bf93614ea304",
+          "treasury": "band1p32xyvnufce520j6c0gyznheg0ezul4g2sy8rh",
+          "fee": []
+        },
+        {
+          "owner": "band1p32xyvnufce520j6c0gyznheg0ezul4g2sy8rh",
+          "name": "L_INDEX_13",
+          "description": "TBD",
+          "filename": "111c3b069051dcc2afe4a416956fd9ab3cd1cd10e7102339d1d816dea386e52e",
+          "treasury": "band1p32xyvnufce520j6c0gyznheg0ezul4g2sy8rh",
+          "fee": []
+        },
+        {
+          "owner": "band1p32xyvnufce520j6c0gyznheg0ezul4g2sy8rh",
+          "name": "L_XLCI",
+          "description": "TBD",
+          "filename": "5d965e9cd3d8c790224b4186b1f671bda5fd06cf5864c72b3ce9a61eb763cd29",
+          "treasury": "band1p32xyvnufce520j6c0gyznheg0ezul4g2sy8rh",
+          "fee": []
+        },
+        {
+          "owner": "band1p32xyvnufce520j6c0gyznheg0ezul4g2sy8rh",
+          "name": "FINAGE",
+          "description": "TBD",
+          "filename": "9dd11f1fdbba5f3618fa3de3c54b56824398b4b3d5c21efd165846a57b57336a",
+          "treasury": "band1p32xyvnufce520j6c0gyznheg0ezul4g2sy8rh",
+          "fee": []
+        },
+        {
+          "owner": "band1p32xyvnufce520j6c0gyznheg0ezul4g2sy8rh",
+          "name": "FINAGE",
+          "description": "TBD",
+          "filename": "30eca840150ab027139dec3808e9b9c32d235604701032347704fdb022be42d7",
+          "treasury": "band1p32xyvnufce520j6c0gyznheg0ezul4g2sy8rh",
+          "fee": []
+        },
+        {
+          "owner": "band16ehyrzl8xcvary4e09wgw9qshazdns9qul47uu",
+          "name": "themis-twitter",
+          "description": "This data source allows to fetch a Desmos signature proof from a public tweet or the biography of a user, after they linked it using a public link",
+          "filename": "e44dab7dd61e4e62ee1fc73d3d07f0ddfc8388ecf14d8a24862fae85481f27b6",
+          "treasury": "band16ehyrzl8xcvary4e09wgw9qshazdns9qul47uu",
+          "fee": []
+        },
+        {
+          "owner": "band1ggycrnmlrnevnzzczv8yccfq56vu53reg022zp",
+          "name": "gold-freeforexapi.com",
+          "description": "get gold price in USD from freeforexapi.com",
+          "filename": "b68d5128d7c1f5d36a4ee73904412f95048374b77276d446d720c6977350be37",
+          "treasury": "band1ggycrnmlrnevnzzczv8yccfq56vu53reg022zp",
+          "fee": []
+        },
+        {
+          "owner": "band1ggycrnmlrnevnzzczv8yccfq56vu53reg022zp",
+          "name": "gold-goldprice.org",
+          "description": "get gold price in USD from goldprice.org",
+          "filename": "1d39ca1c9e5cb608a89c47d8e0f08483fbda096b2d43bc24c70aeb3dc30efc10",
+          "treasury": "band1ggycrnmlrnevnzzczv8yccfq56vu53reg022zp",
+          "fee": []
+        },
+        {
+          "owner": "band1p32xyvnufce520j6c0gyznheg0ezul4g2sy8rh",
+          "name": "TWELVE",
+          "description": "TBD",
+          "filename": "05ba7ab6d726f0d8761649ba1dbcb4f56ab17757b6a33e3aa77b7d5cee68222a",
+          "treasury": "band1p32xyvnufce520j6c0gyznheg0ezul4g2sy8rh",
+          "fee": []
+        },
+        {
+          "owner": "band1p32xyvnufce520j6c0gyznheg0ezul4g2sy8rh",
+          "name": "GOAL_SERVE_NBA_ODD",
+          "description": "TBD",
+          "filename": "21321401579c4f8ea710fadecaeb6ac5b7ade4546820eb88ab40912959bc6702",
+          "treasury": "band1p32xyvnufce520j6c0gyznheg0ezul4g2sy8rh",
+          "fee": []
+        },
+        {
+          "owner": "band1p32xyvnufce520j6c0gyznheg0ezul4g2sy8rh",
+          "name": "GOAL_SERVE_NBA_SCORE",
+          "description": "TBD",
+          "filename": "3820fe6a04656a86ccfd1ac979444f1cd548ed52cc33ec03395703aed8aafa4f",
+          "treasury": "band1p32xyvnufce520j6c0gyznheg0ezul4g2sy8rh",
+          "fee": []
+        },
+        {
+          "owner": "band1p32xyvnufce520j6c0gyznheg0ezul4g2sy8rh",
+          "name": "CRYPTO_PRICE_FROM_URL",
+          "description": "TBD",
+          "filename": "bf897f100fce19e338a13e3a85915cb09ccfed24fea8eba17b97334efb900cce",
+          "treasury": "band1p32xyvnufce520j6c0gyznheg0ezul4g2sy8rh",
+          "fee": []
+        },
+        {
+          "owner": "band1qudzmeu5yr7ryaq9spfpurptvlv4mxeh43zylj",
+          "name": "CoinMarketCap",
+          "description": "get currencies from coinmarketcap.com",
+          "filename": "c62790be154cf3fa445a654e6ae43da2a2f7fba9793e0168f681ffafd8816604",
+          "treasury": "band1qudzmeu5yr7ryaq9spfpurptvlv4mxeh43zylj",
+          "fee": [{ "denom": "uband", "amount": "2" }]
+        },
+        {
+          "owner": "band1lv90l7xf3jyneh046clyfujz2se6xkqgcvzs3p",
+          "name": "Brave New Coin",
+          "description": "",
+          "filename": "61b369daa5c0918020a52165f6c7662d5b9c1eee915025cb3d2b9947a26e48c7",
+          "treasury": "band15vxtygy8ynpw47uk0wq99lsh0e6mywzyc9l4ec",
+          "fee": []
+        },
+        {
+          "owner": "band1lv90l7xf3jyneh046clyfujz2se6xkqgcvzs3p",
+          "name": "CryptoCompare",
+          "description": "",
+          "filename": "7e6759fade717a06fb643392bfde837bfc3437da2ded54feed706e6cd35de461",
+          "treasury": "band15vxtygy8ynpw47uk0wq99lsh0e6mywzyc9l4ec",
+          "fee": []
+        },
+        {
+          "owner": "band1lv90l7xf3jyneh046clyfujz2se6xkqgcvzs3p",
+          "name": "CoinGecko",
+          "description": "",
+          "filename": "5c011454981c473af3bf6ef93c76b36bfb6cc0ce5310a70a1ba569de3fc0c15d",
+          "treasury": "band15vxtygy8ynpw47uk0wq99lsh0e6mywzyc9l4ec",
+          "fee": []
+        },
+        {
+          "owner": "band1lv90l7xf3jyneh046clyfujz2se6xkqgcvzs3p",
+          "name": "CCXT",
+          "description": "",
+          "filename": "2e588de76a58338125022bc42b460072300aebbcc4acaf55f91755c1c1799bac",
+          "treasury": "band15vxtygy8ynpw47uk0wq99lsh0e6mywzyc9l4ec",
+          "fee": []
+        },
+        {
+          "owner": "band1lv90l7xf3jyneh046clyfujz2se6xkqgcvzs3p",
+          "name": "Coinbase Pro",
+          "description": "",
+          "filename": "07be7bd61667327aae10b7a13a542c7dfba31b8f4c52b0b60bf9c7b11b1a72ef",
+          "treasury": "band15vxtygy8ynpw47uk0wq99lsh0e6mywzyc9l4ec",
+          "fee": []
+        },
+        {
+          "owner": "band1lv90l7xf3jyneh046clyfujz2se6xkqgcvzs3p",
+          "name": "CoinMarketCap",
+          "description": "",
+          "filename": "107048da9dbf7960c79fb20e0585e080bb9be07d42a1ce09c5479bbada8d0289",
+          "treasury": "band15vxtygy8ynpw47uk0wq99lsh0e6mywzyc9l4ec",
+          "fee": []
+        },
+        {
+          "owner": "band1lv90l7xf3jyneh046clyfujz2se6xkqgcvzs3p",
+          "name": "Alpha Vantage",
+          "description": "",
+          "filename": "192a1941c7be485da523408fb6faa6eb89ce4e11f2cb926aae22b1aa73dd8e4c",
+          "treasury": "band1lv90l7xf3jyneh046clyfujz2se6xkqgcvzs3p",
+          "fee": []
+        },
+        {
+          "owner": "band1lv90l7xf3jyneh046clyfujz2se6xkqgcvzs3p",
+          "name": "Fixer",
+          "description": "",
+          "filename": "9b46d0a4fecaa160547f5c122629c89d23892f4c69df53faeb073b104beba725",
+          "treasury": "band1lv90l7xf3jyneh046clyfujz2se6xkqgcvzs3p",
+          "fee": []
+        },
+        {
+          "owner": "band1lv90l7xf3jyneh046clyfujz2se6xkqgcvzs3p",
+          "name": "OpenExchangeRates",
+          "description": "",
+          "filename": "77c2f80b37018c228c3d12f59be720725717e6be594f9c081ceb9fb5b0b6ecc4",
+          "treasury": "band1lv90l7xf3jyneh046clyfujz2se6xkqgcvzs3p",
+          "fee": []
+        },
+        {
+          "owner": "band1lv90l7xf3jyneh046clyfujz2se6xkqgcvzs3p",
+          "name": "XE",
+          "description": "",
+          "filename": "355bea36ad11ee8bcceaac5ba99d8ca4192623cfe54ee3e7f345a368b61c0979",
+          "treasury": "band1lv90l7xf3jyneh046clyfujz2se6xkqgcvzs3p",
+          "fee": []
+        },
+        {
+          "owner": "band1xureu9gm0yvp0xcg0fuprp0xn4dln7uldt9jg3",
+          "name": "Token Total Supply",
+          "description": "",
+          "filename": "bd2eb1acd4b28936d3f087cd24f7f9813a5baf41eb380488ce91c466aba39bcb",
+          "treasury": "band1xureu9gm0yvp0xcg0fuprp0xn4dln7uldt9jg3",
+          "fee": []
+        },
+        {
+          "owner": "band16ehyrzl8xcvary4e09wgw9qshazdns9qul47uu",
+          "name": "themis-github",
+          "description": "This data source allows to fetch a Desmos signature proof from a public Gist",
+          "filename": "ae3b2de164057239e268bed3c55031e20f1003e82a1e0225087bf9d009bf4263",
+          "treasury": "band16ehyrzl8xcvary4e09wgw9qshazdns9qul47uu",
+          "fee": []
+        },
+        {
+          "owner": "band1xureu9gm0yvp0xcg0fuprp0xn4dln7uldt9jg3",
+          "name": "Oil Price",
+          "description": "",
+          "filename": "5579e1211932843a7cefa69f3d8353cd23dc200a9016264719d23a0f33f3d60e",
+          "treasury": "band1xureu9gm0yvp0xcg0fuprp0xn4dln7uldt9jg3",
+          "fee": []
+        },
+        {
+          "owner": "band1xureu9gm0yvp0xcg0fuprp0xn4dln7uldt9jg3",
+          "name": "Static Value",
+          "description": "",
+          "filename": "e59aebafd1c8783f4b7393f02302c36b7168440ed6dfb8bfb57a95cd1ea08541",
+          "treasury": "band1xureu9gm0yvp0xcg0fuprp0xn4dln7uldt9jg3",
+          "fee": []
+        },
+        {
+          "owner": "band1xureu9gm0yvp0xcg0fuprp0xn4dln7uldt9jg3",
+          "name": "Xangle Large Cap Index",
+          "description": "",
+          "filename": "272ab8efeb94f1340f0be73109a9cbef670084aba71f3c9c31e28b4a71bd0b04",
+          "treasury": "band1xureu9gm0yvp0xcg0fuprp0xn4dln7uldt9jg3",
+          "fee": []
+        },
+        {
+          "owner": "band1xureu9gm0yvp0xcg0fuprp0xn4dln7uldt9jg3",
+          "name": "Xangle Blue Chip Index",
+          "description": "",
+          "filename": "c42aa5f1941d5510423afaef330b455ea4b8ad812e8928038383c3c1335df61d",
+          "treasury": "band1xureu9gm0yvp0xcg0fuprp0xn4dln7uldt9jg3",
+          "fee": []
+        },
+        {
+          "owner": "band1xureu9gm0yvp0xcg0fuprp0xn4dln7uldt9jg3",
+          "name": "Standard Dataset REST",
+          "description": "",
+          "filename": "a236cffeae9df8da88292e33b6111f28eaf671d7a80261590fe0d38cc2755509",
+          "treasury": "band1xureu9gm0yvp0xcg0fuprp0xn4dln7uldt9jg3",
+          "fee": []
+        },
+        {
+          "owner": "band1xureu9gm0yvp0xcg0fuprp0xn4dln7uldt9jg3",
+          "name": "Price from URL",
+          "description": "",
+          "filename": "00a137f66c20c3bbb7ba86de7d9c06f22bac4160bd760dba6e38bdf6c73fc33e",
+          "treasury": "band1xureu9gm0yvp0xcg0fuprp0xn4dln7uldt9jg3",
+          "fee": []
+        },
+        {
+          "owner": "band1xureu9gm0yvp0xcg0fuprp0xn4dln7uldt9jg3",
+          "name": "IEXCloud",
+          "description": "",
+          "filename": "483170cc17941f2f5e390acfc41be407fe842b7aec06e3884d2a6a317006bd8b",
+          "treasury": "band1xureu9gm0yvp0xcg0fuprp0xn4dln7uldt9jg3",
+          "fee": []
+        },
+        {
+          "owner": "band1xureu9gm0yvp0xcg0fuprp0xn4dln7uldt9jg3",
+          "name": "Finage",
+          "description": "",
+          "filename": "928a074b58703f2368841a7467b51083aedf182aa08d1e437c634702998024a2",
+          "treasury": "band1xureu9gm0yvp0xcg0fuprp0xn4dln7uldt9jg3",
+          "fee": []
+        },
+        {
+          "owner": "band1xureu9gm0yvp0xcg0fuprp0xn4dln7uldt9jg3",
+          "name": "Finage (Canada)",
+          "description": "",
+          "filename": "31c368a4320fbc4cfb939911bf4e354ee836f78e7faadac2576dffee52ffa07f",
+          "treasury": "band1xureu9gm0yvp0xcg0fuprp0xn4dln7uldt9jg3",
+          "fee": []
+        },
+        {
+          "owner": "band1xureu9gm0yvp0xcg0fuprp0xn4dln7uldt9jg3",
+          "name": "OXR",
+          "description": "",
+          "filename": "ab803e3b75242e84f9a5a496ab7efdb03ac9f27d771745fdd265028b7ffa1f5b",
+          "treasury": "band1xureu9gm0yvp0xcg0fuprp0xn4dln7uldt9jg3",
+          "fee": []
+        },
+        {
+          "owner": "band1xureu9gm0yvp0xcg0fuprp0xn4dln7uldt9jg3",
+          "name": "Crypto Bid Ask Price",
+          "description": "",
+          "filename": "44def3c75de8c50da07f2452871a5c9c92b245e10fb4ba46f859f2b42a96adaa",
+          "treasury": "band1xureu9gm0yvp0xcg0fuprp0xn4dln7uldt9jg3",
+          "fee": []
+        },
+        {
+          "owner": "band16ehyrzl8xcvary4e09wgw9qshazdns9qul47uu",
+          "name": "themis-discord",
+          "description": "This data source allows to fetch a Desmos signature proof for a Discord user",
+          "filename": "9dd76c8320f50377e8a11eefc24607c428aa4d685ae80b758dc5726fb9ecf56b",
+          "treasury": "band16ehyrzl8xcvary4e09wgw9qshazdns9qul47uu",
+          "fee": []
+        },
+        {
+          "owner": "band18e55d9xyrgyg3tk72zmg7s92uu8sd95jzgj73a",
+          "name": "TEST_QRNG",
+          "description": "TBD",
+          "filename": "0b1b133fedba55eeb5b30d7f4dc693c7f0838a0bc4bddb4144008e7a475ab835",
+          "treasury": "band18e55d9xyrgyg3tk72zmg7s92uu8sd95jzgj73a",
+          "fee": []
+        }
+      ],
+      "oracle_scripts": [
+        {
+          "owner": "band1jfdmjkxs3hvddsf4ef2wmsmte3s5llqhxqgcfe",
+          "name": "OS1",
+          "description": "TBD",
+          "filename": "f86b37dbe62c3b8c86ae28523bf09e9963a6b2951dd1a5be79f29f66d8236abf",
+          "schema": "{gas_option:string}/{gweix10:u64}",
+          "source_code_url": ""
+        },
+        {
+          "owner": "band1m5lq9u533qaya4q3nfyl6ulzqkpkhge9q8tpzs",
+          "name": "OS2",
+          "description": "DS2",
+          "filename": "b108c1cb2d61e58b94fc827697b91102b19f8644730ffc00daad8eac51f0b5ee",
+          "schema": "{endpoint:string,symbols:[string]}/{px:[u64]}",
+          "source_code_url": "https://gateway.pinata.clou"
+        },
+        {
+          "owner": "band1m5lq9u533qaya4q3nfyl6ulzqkpkhge9q8tpzs",
+          "name": "Test script",
+          "description": "TBD",
+          "filename": "c892bf7a1b8f1758763f3ea870a75a8ed3024062f6c440ceb882d97776b40436",
+          "schema": "{seed:string}/{value:string}",
+          "source_code_url": ""
+        },
+        {
+          "owner": "band17f6n25na5kume99j4qdfzlf7jnpu9u2neqqvt8",
+          "name": "A",
+          "description": "TBD",
+          "filename": "569c89a0f64fdd91049329763c5573531a999e7df5c22d10f5366061a8f3b0c1",
+          "schema": "{symbols:[string],multiplier:u64}/{rates:[u64]}",
+          "source_code_url": "https://ipfs.io/ipfs/Qme4G5Z3uFNB1FaNp9uFU8Zn12Prc6mYKQ1pVg9jAGkjhG"
+        },
+        {
+          "owner": "band18lthvujxu59wtd68lnv35t7rmu04ukq9hmywps",
+          "name": "Bitcoin Price",
+          "description": "TBD",
+          "filename": "439d03fc0ca30de2f3975c3838540635ade646457da82e7f3c5d2fa81b51314e",
+          "schema": "{base_symbol:string,quote_symbol:string,multiplier:u64}/{px:u64}",
+          "source_code_url": "https://ipfs.io/ipfs/QmemNaE3oSathykV1bE3zuRrskEw9z5umD8ggyzR9w68m4"
+        },
+        {
+          "owner": "band17f6n25na5kume99j4qdfzlf7jnpu9u2neqqvt8",
+          "name": "AF",
+          "description": "TBD",
+          "filename": "768275d10065f4d2488e646623584fbe4afc86e7af96a11c1a66da0cb4d4e303",
+          "schema": "{symbols:[string],multiplier:u64}/{rates:[u64]}",
+          "source_code_url": ""
+        },
+        {
+          "owner": "band1z2mml96p5jexujj5s00vfskfqen08ml8f42lfe",
+          "name": "BB",
+          "description": "TBD",
+          "filename": "bd699346c208d2fb6dc51eb16bbf3fc8637fdebd8cdbfa9bed9cd438d3b4c7a2",
+          "schema": "{symbols:[string],multiplier:u64}/{rates:[u64]}",
+          "source_code_url": ""
+        },
+        {
+          "owner": "band1z2mml96p5jexujj5s00vfskfqen08ml8f42lfe",
+          "name": "BB",
+          "description": "TBD",
+          "filename": "e0ad0ae4b13ba39e6616266791d36b042bfdfd694dfd521a1d013aca3a7021a7",
+          "schema": "{symbols:[string],multiplier:u64}/{rates:[u64]}",
+          "source_code_url": ""
+        },
+        {
+          "owner": "band17f6n25na5kume99j4qdfzlf7jnpu9u2neqqvt8",
+          "name": "AV2",
+          "description": "TBD",
+          "filename": "6a8ff836142df0f5131d896c7f52670e2b4e3a527f10cfc1dcf7dee00270ac3a",
+          "schema": "{symbols:[string],multiplier:u64}/{rates:[u64]}",
+          "source_code_url": ""
+        },
+        {
+          "owner": "band1p32xyvnufce520j6c0gyznheg0ezul4g2sy8rh",
+          "name": "OS GS ODD",
+          "description": "TBD",
+          "filename": "97ea37513be3446ae13db5f88cd42cec0859c8b62fc5bf7db9a70d353ddcd382",
+          "schema": "{category:string,date1:string,date2:string,tournament_name:string,contest_id:string,odds_type:string,bookmaker_id:string}/{value:string}",
+          "source_code_url": "https://ipfs.io/ipfs/Qme3kPXAKPmuosWFfpuGLRHyJT9JoGmAqYhSikfbBcAFRx"
+        },
+        {
+          "owner": "band17f6n25na5kume99j4qdfzlf7jnpu9u2neqqvt8",
+          "name": "AFV2",
+          "description": "TBD",
+          "filename": "73d71be92b5de0dbe791938cb5ccb52efcb807c2089dae5ac934f54d7ca3dbe8",
+          "schema": "{symbols:[string],multiplier:u64}/{rates:[u64]}",
+          "source_code_url": ""
+        },
+        {
+          "owner": "band17f6n25na5kume99j4qdfzlf7jnpu9u2neqqvt8",
+          "name": "AMPv2",
+          "description": "TBD",
+          "filename": "38c68a7af832062bb1d4ee7cdc93f4633d843ef898b6b7d4ca5a4d7c24492728",
+          "schema": "{symbols:[string],multiplier:u64}/{rates:[u64]}",
+          "source_code_url": ""
+        },
+        {
+          "owner": "band1p32xyvnufce520j6c0gyznheg0ezul4g2sy8rh",
+          "name": "OS AB",
+          "description": "TBD",
+          "filename": "901793088ab5a3d413216a8a84ed30b9da18af51f1faac0baae6cb780447622f",
+          "schema": "{platform:string,asset_address:string,holder_address:string}/{balance:u128}",
+          "source_code_url": "https://ipfs.io/ipfs/QmPGSUEL9b5yBFb9utDCTepXcMGGErdUDcjdgu7LhKavNV"
+        },
+        {
+          "owner": "band1p32xyvnufce520j6c0gyznheg0ezul4g2sy8rh",
+          "name": "OS EOB",
+          "description": "TBD",
+          "filename": "f6e540a1dce41056cb259c8e65a1437dd527b7062571c9433fb395163db9ee76",
+          "schema": "{exchanges:[string],base_symbol:string,quote_symbol:string,multiplier:u64}/{order_books:[{ask:i64,bid:i64,mid:i64}]}",
+          "source_code_url": "https://ipfs.io/ipfs/QmNZScJx9GVFsxPtT3SBYTWRrWm41f9QhFGLs53rsdgPHz"
+        },
+        {
+          "owner": "band1p32xyvnufce520j6c0gyznheg0ezul4g2sy8rh",
+          "name": "OS NAT",
+          "description": "TBD",
+          "filename": "086aa00167aa6e3f2a1cf11c2e2d40e9497c5f27675c989513dbf851c97b8fb4",
+          "schema": "{exchanges:[string],base_symbol:string,quote_symbol:string,multiplier:u64}/{order_books:[{ask:i64,bid:i64,mid:i64}]}",
+          "source_code_url": "https://ipfs.io/ipfs/QmViJ3TGVuoDPvNqCJxXPyTuwRuUGkPwKXr2a2oRBuhDDa"
+        },
+        {
+          "owner": "band1p32xyvnufce520j6c0gyznheg0ezul4g2sy8rh",
+          "name": "OS GS SCORE",
+          "description": "TBD",
+          "filename": "8542ac1ca4d06ca5555d6f030ac9773993a2e24cfdce17ac28c22e012ac4e106",
+          "schema": "{category:string,date:string,contest_id:string}/{value:string}",
+          "source_code_url": "https://ipfs.io/ipfs/QmeM4zXqwgkCkJmXnmSB7kYYB3rbAfJitQPA75zs3CR7MS"
+        },
+        {
+          "owner": "band1p32xyvnufce520j6c0gyznheg0ezul4g2sy8rh",
+          "name": "OS BTC FEES",
+          "description": "TBD",
+          "filename": "4851e8b9c41699d52bf8b5daa4b631cc6cbb68b61a746edc98d73e34f5fcb6c5",
+          "schema": "{_unused:u8}/{fastest:u64,half_hour:u64,hour:u64,err_msg:string}",
+          "source_code_url": "https://ipfs.io/ipfs/QmWpqng5RE43TaY8nnQEGYEZu56vmwQpmCoJxQAYSiaQH9"
+        },
+        {
+          "owner": "band1p32xyvnufce520j6c0gyznheg0ezul4g2sy8rh",
+          "name": "OS TWAP BINANCE",
+          "description": "TBD",
+          "filename": "e7364bdc42a86916ebbec273ff2925457ce1c1c590675b4c107b146ce303be4b",
+          "schema": "{symbols:[string],multiplier:u64}/{rates:[u64]}",
+          "source_code_url": "https://ipfs.io/ipfs/QmVFtP9f7Er1pzoQzo9mJPYkXgbWPyDX43Vydc6E79g5CE"
+        },
+        {
+          "owner": "band1p32xyvnufce520j6c0gyznheg0ezul4g2sy8rh",
+          "name": "OS LINA PRICE",
+          "description": "TBD",
+          "filename": "ed7213e1afd558070f8134b18e3df3f4e09cbfa710bba5a5846c33d0fb18c2c9",
+          "schema": "{symbols:[string],multiplier:u64}/{rates:[u64]}",
+          "source_code_url": ""
+        },
+        {
+          "owner": "band17f6n25na5kume99j4qdfzlf7jnpu9u2neqqvt8",
+          "name": "Stock Price",
+          "description": "",
+          "filename": "b3029968068c9fa3a27dc9b9a92ac029dfc613f800d8641dace875ada6878590",
+          "schema": "{symbols:[string],multiplier:u64}/{rates:[u64]}",
+          "source_code_url": ""
+        },
+        {
+          "owner": "band1p32xyvnufce520j6c0gyznheg0ezul4g2sy8rh",
+          "name": "OS DERIBIT ATM IV",
+          "description": "TBD",
+          "filename": "1be42ce3b671f5a3555d8a6804c0b57d07cd9f75f30b59e6ba39115b0b773e7e",
+          "schema": "{symbol:string,multiplier:u64}/{atm_iv:u64}",
+          "source_code_url": ""
+        },
+        {
+          "owner": "band1w8mmcw6y6gsptyae6zwl67t3cccxvnnwlmfkdj",
+          "name": "test-dv-oracle",
+          "description": "Test DV oracle",
+          "filename": "06a99edd7fc44e600acdfa99c2939015ef94cadceba52127eb0b7f68f27dbbd2",
+          "schema": "",
+          "source_code_url": ""
+        },
+        {
+          "owner": "band1w8mmcw6y6gsptyae6zwl67t3cccxvnnwlmfkdj",
+          "name": "test-dv-oracle",
+          "description": "Test DV oracle",
+          "filename": "06a99edd7fc44e600acdfa99c2939015ef94cadceba52127eb0b7f68f27dbbd2",
+          "schema": "",
+          "source_code_url": ""
+        },
+        {
+          "owner": "band1w8mmcw6y6gsptyae6zwl67t3cccxvnnwlmfkdj",
+          "name": "test-dv-oracle-2",
+          "description": "Test DV oracle #2",
+          "filename": "06a99edd7fc44e600acdfa99c2939015ef94cadceba52127eb0b7f68f27dbbd2",
+          "schema": "{symbol:string,multiplier:u64}/{price:u64,sources:[{name:string,time:u64}]}",
+          "source_code_url": ""
+        },
+        {
+          "owner": "band1w8mmcw6y6gsptyae6zwl67t3cccxvnnwlmfkdj",
+          "name": "test-dv-oracle-3",
+          "description": "Test DV oracle #3",
+          "filename": "06a99edd7fc44e600acdfa99c2939015ef94cadceba52127eb0b7f68f27dbbd2",
+          "schema": "{symbol:string,multiplier:u64}/{price:u64,sources:[{name:string,time:u64}]}",
+          "source_code_url": "https://raw.githubusercontent.com/tarOzone/oracle-script-dv/main/lib.rs"
+        },
+        {
+          "owner": "band1w8mmcw6y6gsptyae6zwl67t3cccxvnnwlmfkdj",
+          "name": "test-dv-oracle-4",
+          "description": "Test DV oracle #4",
+          "filename": "7e163f919dabd5490bcbdffc512ee84d340f1c74c9937cfcf86dafd02669d85a",
+          "schema": "{}/{price:u64}",
+          "source_code_url": ""
+        },
+        {
+          "owner": "band1p32xyvnufce520j6c0gyznheg0ezul4g2sy8rh",
+          "name": "OS BTC PARACHAIN",
+          "description": "TBD",
+          "filename": "ec158469cdd05d0a2360b4803ae94785b8d7182f456e9bce7abf9a93a4718e29",
+          "schema": "{symbols:[string],multiplier:u64}/{rates:[u64]}",
+          "source_code_url": "https://ipfs.io/ipfs/QmdoyY1RivDXKAJcVEaD216UtJEvXbJWVsKS5kA63UKpMP"
+        },
+        {
+          "owner": "band1w8mmcw6y6gsptyae6zwl67t3cccxvnnwlmfkdj",
+          "name": "test-dv-oracle-5",
+          "description": "Test DV oracle #5",
+          "filename": "a5c6e8b003cae0a2a8b776c7ce92d113819f661849250a5e8899895932a7f9ae",
+          "schema": "",
+          "source_code_url": ""
+        },
+        {
+          "owner": "band1w8mmcw6y6gsptyae6zwl67t3cccxvnnwlmfkdj",
+          "name": "warpgate",
+          "description": "alkahest",
+          "filename": "054a8ee3dbe65b83f8376007c0a8e4286a842f12770263bf820c75dadebe7006",
+          "schema": "",
+          "source_code_url": ""
+        },
+        {
+          "owner": "band1p32xyvnufce520j6c0gyznheg0ezul4g2sy8rh",
+          "name": "OS L INDEX",
+          "description": "TBD",
+          "filename": "9d2c8727e931e33ff0d8deddcd215714e43cbc9d4a26b8f1ac5d43453a42de37",
+          "schema": "{symbols:[string],multiplier:u64}/{rates:[u64]}",
+          "source_code_url": "https://ipfs.io/ipfs/QmajD9m7sux6jGHixzYyvk94r3nQGfTMAFxAmBMKkDgzX7"
+        },
+        {
+          "owner": "band1p32xyvnufce520j6c0gyznheg0ezul4g2sy8rh",
+          "name": "OS STN",
+          "description": "TBD",
+          "filename": "907d74491ec7e0e52f6d98f507b1f7153b8ba72d698e0d2010a3f68d4e54c976",
+          "schema": "{symbols:[string],multiplier:u64}/{rates:[u64]}",
+          "source_code_url": "https://ipfs.io/ipfs/QmNpQHz6U3br2E4JYhhp443N66x2TEJ3KBQ5eGnHkovEU6"
+        },
+        {
+          "owner": "band16ehyrzl8xcvary4e09wgw9qshazdns9qul47uu",
+          "name": "Desmos Themis",
+          "description": "",
+          "filename": "21ebe314463433b64d970fab3ae33c2d2d6615e208cd8506513736d545c64860",
+          "schema": "",
+          "source_code_url": "https://raw.githubusercontent.com/desmos-labs/themis/main/oracle-scripts/src/script.rs"
+        },
+        {
+          "owner": "band1ggycrnmlrnevnzzczv8yccfq56vu53reg022zp",
+          "name": "Gold Price",
+          "description": "Script to get gold price in USD dollars per gold unit",
+          "filename": "aefb44f5534f3243f1c5fd5192f14ba9ce6f009d3d78e79ae6407867044591a2",
+          "schema": "{multiplier:u64}/{price:u64}",
+          "source_code_url": "https://github.com/ntchjb/learn-band-oracle"
+        },
+        {
+          "owner": "band1p32xyvnufce520j6c0gyznheg0ezul4g2sy8rh",
+          "name": "OS B SYMBOL MAP",
+          "description": "TBD",
+          "filename": "c0a847341402460e770e515fe6ef5513a6364b770b9c89a9487c8a0117fa5fa9",
+          "schema": "{symbols:[string],multiplier:u64}/{rates:[u64]}",
+          "source_code_url": "https://ipfs.io/ipfs/QmTPKiSV75i6YwLXzyvvCXMUiQEaLoqqu4Di3TEvjtgc3M"
+        },
+        {
+          "owner": "band1f7wtd60v2s9rtfrl804cjwyt42fxas4w6kuskf",
+          "name": "LR Experimental Data",
+          "description": "",
+          "filename": "1179052a3113b67e83913d072600d96ffe9bac049890acd0523c449baa09c1aa",
+          "schema": "{geohash:string}/{price:u64,population:u64}",
+          "source_code_url": ""
+        },
+        {
+          "owner": "band1qudzmeu5yr7ryaq9spfpurptvlv4mxeh43zylj",
+          "name": "Crypto Prices",
+          "description": "get cryptocurrency prices in USD",
+          "filename": "79b0d36d462043a26acc2235b996fa0741621fecc9ee5fc069d4f84cc569f4ed",
+          "schema": "{endpoint:string,symbol:[string],multiplier:u64}/{price:[u64]}",
+          "source_code_url": ""
+        },
+        {
+          "owner": "band1lv90l7xf3jyneh046clyfujz2se6xkqgcvzs3p",
+          "name": "Band Standard Dataset (Crypto)",
+          "description": "",
+          "filename": "f0b7d894b25eca60e8519ca3d37b25ba1df2b01058ccf81ee825fa68293fcf16",
+          "schema": "{symbols:[string],multiplier:u64}/{rates:[u64]}",
+          "source_code_url": ""
+        },
+        {
+          "owner": "band1lv90l7xf3jyneh046clyfujz2se6xkqgcvzs3p",
+          "name": "Band Standard Dataset (Forex & Commodities)",
+          "description": "",
+          "filename": "6a187d34565be3113fb66b43e90afc128414ba680c8b07b2fb352632b8696f5a",
+          "schema": "{symbols:[string],multiplier:u64}/{rates:[u64]}",
+          "source_code_url": ""
+        },
+        {
+          "owner": "band1xureu9gm0yvp0xcg0fuprp0xn4dln7uldt9jg3",
+          "name": "Fantom Total Supply",
+          "description": "",
+          "filename": "9c91e402124c8347dc9eb736ded2fbd3ea4646e198efdb568e8716ade0b931d3",
+          "schema": "{address:string}/{total_supply:string}",
+          "source_code_url": ""
+        },
+        {
+          "owner": "band1xureu9gm0yvp0xcg0fuprp0xn4dln7uldt9jg3",
+          "name": "Oil Price",
+          "description": "",
+          "filename": "e6233fbeee243bab3f379f903c4d79d03209a001995cf496fdc4156285ea8780",
+          "schema": "{symbols:[string],multiplier:u64}/{rates:[u64]}",
+          "source_code_url": ""
+        },
+        {
+          "owner": "band1xureu9gm0yvp0xcg0fuprp0xn4dln7uldt9jg3",
+          "name": "Static Value",
+          "description": "",
+          "filename": "6ec160395fa10abffb7de4809b5f26d06119e06bc14666159aa6cce8937a6bc8",
+          "schema": "{symbols:[string],multiplier:u64}/{rates:[u64]}",
+          "source_code_url": ""
+        },
+        {
+          "owner": "band1xureu9gm0yvp0xcg0fuprp0xn4dln7uldt9jg3",
+          "name": "Xangle Indices",
+          "description": "",
+          "filename": "242295d660500622214849c43afae9df81de0ccb8ff0a89d5dc5869cc83b0f43",
+          "schema": "{symbols:[string],multiplier:u64}/{rates:[u64]}",
+          "source_code_url": ""
+        },
+        {
+          "owner": "band1xureu9gm0yvp0xcg0fuprp0xn4dln7uldt9jg3",
+          "name": "Symbol Token Map",
+          "description": "",
+          "filename": "52f59feb51e3fcb6af42a0354152a8223e52d2e7b98fa2a43343b521ac5e212a",
+          "schema": "{symbols:[string],multiplier:u64}/{rates:[u64]}",
+          "source_code_url": ""
+        },
+        {
+          "owner": "band1xureu9gm0yvp0xcg0fuprp0xn4dln7uldt9jg3",
+          "name": "Stock Price V2",
+          "description": "",
+          "filename": "de873e4eeb08b0480137af1a7fc559dddde661eec2bb6bbbd512874d87200a6c",
+          "schema": "{symbols:[string],multiplier:u64}/{rates:[u64]}",
+          "source_code_url": ""
+        },
+        {
+          "owner": "band1xureu9gm0yvp0xcg0fuprp0xn4dln7uldt9jg3",
+          "name": "Terra LUNA Price",
+          "description": "",
+          "filename": "14b25cc8ecf2261bf4d5444d0b9e7adc80a434f2c5b5a5efbecd0d89dd3639e1",
+          "schema": "{multiplier:u64}/{prices:[{ask:u64,bid:u64,mid:u64}]}",
+          "source_code_url": ""
+        },
+        {
+          "owner": "band1m5lq9u533qaya4q3nfyl6ulzqkpkhge9q8tpzs",
+          "name": "Test State Sync",
+          "description": "get prices in USD and average them",
+          "filename": "e129105caf4c26e2ba9eb647355b494f18a75ca47e114adf17cf370f0c67279c",
+          "schema": "{symbol:string,multiplier:u64}/{px:u64}",
+          "source_code_url": ""
+        }
+      ],
+      "reporters": []
+    },
+    "slashing": {
+      "params": {
+        "signed_blocks_window": "30000",
+        "min_signed_per_window": "0.050000000000000000",
+        "downtime_jail_duration": "600s",
+        "slash_fraction_double_sign": "0.050000000000000000",
+        "slash_fraction_downtime": "0.000100000000000000"
+      },
+      "signing_infos": [],
+      "missed_blocks": []
+    },
+    "staking": {
+      "params": {
+        "unbonding_time": "1814400s",
+        "max_validators": 100,
+        "max_entries": 7,
+        "historical_entries": 1000,
+        "bond_denom": "uband"
+      },
+      "last_total_power": "0",
+      "last_validator_powers": [],
+      "validators": [],
+      "delegations": [],
+      "unbonding_delegations": [],
+      "redelegations": [],
+      "exported": false
+    },
+    "transfer": {
+      "port_id": "transfer",
+      "denom_traces": [],
+      "params": { "send_enabled": true, "receive_enabled": true }
+    },
+    "upgrade": {}
+  }
+}

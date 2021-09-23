@@ -1,5 +1,5 @@
 # Seeds & Peers for Laozi mainnet
-
+Your node needs to know how to find peers. You'll need to add either seeds or persistent peers from the lists below to `$HOME/.band/config/config.toml`.
 ## Seeds
 - (band) 
 8d42bdcb6cced03e0b67fa3957e4e9c8fd89015a@34.87.86.195:26656

@@ -18,7 +18,7 @@ export WALLET_NAME=<YOUR_WALLET_NAME>
 # Name of your validator node, please change this into your name.
 export MONIKER=<YOUR_MONIKER>
 # Persistent peers for P2P communication
-export SEEDS="""TODO: Add it"""
+export SEEDS="472eab3d2a3816fdf63da7fe88b6ae91ba0c88f0@34.87.163.119:26656,d3ea8e468139910e77fcf3a493f3811ca01dd814@34.85.198.8:26656"
 # URL of genesis file for Laozi testnet #5
 export GENESIS_FILE_URL=https://raw.githubusercontent.com/bandprotocol/launch/master/band-laozi-testnet5/genesis.json
 # Data sources/oracle scripts files

@@ -31,8 +31,8 @@ export FAUCET_URL=https://laozi-testnet5.bandchain.org/faucet
 
 The following application is required for Building and running Bandchain node.
 
--   make, gcc, g++ (can be obtained from `build-essential` package on linux)
--   wget, curl for downloading files
+- make, gcc, g++ (can be obtained from `build-essential` package on linux)
+- wget, curl for downloading files
 
 ```bash=
 # install required tools
@@ -41,7 +41,7 @@ sudo apt-get upgrade -y && \
 sudo apt-get install -y build-essential curl wget
 ```
 
--   Go 1.18.3
+- Go 1.18.3
 
 ```bash=
 # Install Go 1.18.3
@@ -49,8 +49,10 @@ wget https://go.dev/dl/go1.18.3.linux-amd64.tar.gz
 tar xf go1.18.3.linux-amd64.tar.gz
 sudo mv go /usr/local/go
 
-# Set Go path to $PATH variable
+# Set Go path to $PATH variable and Cosmovisor variables
 echo "export PATH=\$PATH:/usr/local/go/bin:~/go/bin" >> $HOME/.profile
+echo "export DAEMON_NAME=bandd" >> $HOME/.profile
+echo "export DAEMON_HOME=$HOME/.band" >> $HOME/.profile
 source ~/.profile
 ```
 
@@ -59,10 +61,10 @@ Go binary should be at `/usr/local/go/bin` and any executable compiled by `go in
 ### Step 1.2: Clone & Install Bandchain Laozi
 
 ```bash=
-# Clone Bandchain Laozi version v2.4.0-rc0
+# Clone Bandchain Laozi version v2.4.0-rc1
 git clone https://github.com/bandprotocol/chain
 cd chain
-git checkout v2.4.0-rc0
+git checkout v2.4.0-rc1
 
 # Install binaries to $GOPATH/bin
 make install
@@ -84,6 +86,7 @@ wget -qO- $BIN_FILES_URL | tar xvz -C $HOME/.band/
 
 # Create new account
 bandd keys add $WALLET_NAME
+
 ```
 
 ### Step 1.4: Setup seeds
@@ -95,9 +98,21 @@ sed -E -i \
   $HOME/.band/config/config.toml
 ```
 
-### Step 1.5: Create Bandchain service
+### Step 1.5: Setup Cosmovisor
 
-We do recommend to run bandchain node as a daemon, which can be setup using `systemctl`. Run the following command to create a new daemon for `bandd` (This script work on non-root user).
+```bash=
+# Install Cosmovisor
+go install github.com/cosmos/cosmos-sdk/cosmovisor/cmd/cosmovisor@v1.0.0
+
+# Setup folder and provide bandd binary for Cosmovisor
+mkdir -p $HOME/.band/cosmovisor/genesis/bin
+mkdir -p $HOME/.band/cosmovisor/upgrades
+cp $HOME/go/bin/bandd $HOME/.band/cosmovisor/genesis/bin
+```
+
+### Step 1.6: Create Bandchain service
+
+We do recommend to run bandchain node as a daemon, which can be setup using `systemctl`. Run the following command to create a new daemon for `bandd` through `cosmovisor` (This script work on non-root user).
 
 ```bash=
 # Write bandd service file to /etc/systemd/system/bandd.service
@@ -108,14 +123,20 @@ Description=BandChain Node Daemon
 After=network-online.target
 
 [Service]
+Environment="DAEMON_NAME=bandd"
+Environment="DAEMON_HOME=${HOME}/.band"
+Environment="DAEMON_RESTART_AFTER_UPGRADE=true"
+Environment="DAEMON_ALLOW_DOWNLOAD_BINARIES=false"
+Environment="UNSAFE_SKIP_BACKUP=false"
 User=$USERNAME
-ExecStart=/home/$USERNAME/go/bin/bandd start
+ExecStart=${HOME}/go/bin/cosmovisor start
 Restart=always
 RestartSec=3
 LimitNOFILE=4096
 
 [Install]
 WantedBy=multi-user.target
+
 EOF'
 ```
 
@@ -127,13 +148,13 @@ Based on design, validator need to send a transaction to submit reports based on
 
 There is an update in executor configuration. You can **set up a new executor** by using the instructions on following pages (select either one of these methods):
 
--   [AWS Lambda Function Setup](https://github.com/bandprotocol/data-source-runtime/wiki/Setup-Yoda-Executor-Using-AWS-Lambda)
--   [Google Cloud Function Setup](https://github.com/bandprotocol/data-source-runtime/wiki/Setup-Yoda-Executor-Using-Google-Cloud-Function)
+- [AWS Lambda Function Setup](https://github.com/bandprotocol/data-source-runtime/wiki/Setup-Yoda-Executor-Using-AWS-Lambda)
+- [Google Cloud Function Setup](https://github.com/bandprotocol/data-source-runtime/wiki/Setup-Yoda-Executor-Using-Google-Cloud-Function)
 
 On the other hand, you can **update the executor** with the latest configuration:
 
--   [AWS Lambda Function Update](https://github.com/bandprotocol/data-source-runtime/wiki/Update-Yoda-Executor-on-AWS-Lambda)
--   [Google Cloud Function Update](https://github.com/bandprotocol/data-source-runtime/wiki/Update-Yoda-Executor-on-Google-Cloud-Function)
+- [AWS Lambda Function Update](https://github.com/bandprotocol/data-source-runtime/wiki/Update-Yoda-Executor-on-AWS-Lambda)
+- [Google Cloud Function Update](https://github.com/bandprotocol/data-source-runtime/wiki/Update-Yoda-Executor-on-Google-Cloud-Function)
 
 Then, check the Yoda version that we have compiled. It should be `v2.4.0-rc0`.
 

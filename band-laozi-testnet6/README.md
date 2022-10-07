@@ -18,8 +18,7 @@ export WALLET_NAME=<YOUR_WALLET_NAME>
 # Name of your validator node, please change this into your name.
 export MONIKER=<YOUR_MONIKER>
 # Seed and persistent peers for P2P communication
-export SEEDS=""
-export PERSISTENT_PEERS="TODO"
+export SEEDS="da61931cbbbb2b62dbe7c470d049126cf365d257@35.213.165.61:26656,fffd730672f04d5dc065fa9afce2eb1d6bc4d150@35.212.60.28:26656"
 # URL of genesis file for Laozi testnet #6
 export GENESIS_FILE_URL=https://raw.githubusercontent.com/bandprotocol/launch/master/band-laozi-testnet6/genesis.json
 # Data sources/oracle scripts files
@@ -92,10 +91,6 @@ bandd keys add $WALLET_NAME
 # Add seeds and persistent peers to config.toml
 sed -E -i \
   "s/seeds = \".*\"/seeds = \"${SEEDS}\"/" \
-  $HOME/.band/config/config.toml
-  
-sed -E -i \
-  "s/persistent_peers = \".*\"/persistent_peers = \"${PERSISTENT_PEERS}\"/" \
   $HOME/.band/config/config.toml
 ```
 

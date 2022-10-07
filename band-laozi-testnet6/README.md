@@ -138,7 +138,7 @@ On the other hand, you can **update the executor** with the latest configuration
 - [AWS Lambda Function Update](https://github.com/bandprotocol/data-source-runtime/wiki/Update-Yoda-Executor-on-AWS-Lambda)
 - [Google Cloud Function Update](https://github.com/bandprotocol/data-source-runtime/wiki/Update-Yoda-Executor-on-Google-Cloud-Function)
 
-**Noted** You can use the old executor on laozi-testnet3 (no change from that version)
+**Noted** You can use the old executor on laozi-testnet5 (no change from that version)
 
 Then, check Yoda version that we have compiled. It should be `v2.3.5`.
 

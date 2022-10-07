@@ -1,30 +1,31 @@
-# Bandchain Laozi Testnet #4: How to Join as a Validator
+# Bandchain Laozi Testnet #6: How to Join as a Validator
 
-This document describes methods on how to join as a validator in Laozi testnet #4.
+This document describes methods on how to join as a validator in Laozi testnet #6.
 
 ## Step 1: Set Up Validator Node
 
 This step provides procedures to install Bandchain's executable and sync blocks with other peers.
 
-Assuming to run on Ubuntu 20.04 LTS allowing connection on port `26656` for P2P connection.
+Assuming to run on Ubuntu 22.04 LTS allowing connection on port `26656` for P2P connection.
 
 Before beginning instructions, following variables should be set to be used in further instructions. **Please make sure that these variables is set everytime when using the new shell session**.
 
 ```bash=
-# Chain ID of testnet #4
-export CHAIN_ID=band-laozi-testnet4
+# Chain ID of testnet #6
+export CHAIN_ID="band-laozi-testnet6"
 # Wallet name to be used as validator's account, please change this into your name (no whitespace).
 export WALLET_NAME=<YOUR_WALLET_NAME>
 # Name of your validator node, please change this into your name.
 export MONIKER=<YOUR_MONIKER>
-# Persistent peers for P2P communication
-export SEEDS=9934156cd42fc708b10232746c3e68c1bb999e86@34.87.49.160:26656,e847ebab344857475e8184943e7a40b80a6dda8e@34.85.134.225:26656
-# URL of genesis file for Laozi testnet #3
-export GENESIS_FILE_URL=https://raw.githubusercontent.com/bandprotocol/launch/master/band-laozi-testnet4/genesis.json 
+# Seed and persistent peers for P2P communication
+export SEEDS=""
+export PERSISTENT_PEERS="TODO"
+# URL of genesis file for Laozi testnet #6
+export GENESIS_FILE_URL=https://raw.githubusercontent.com/bandprotocol/launch/master/band-laozi-testnet6/genesis.json
 # Data sources/oracle scripts files
-export BIN_FILES_URL=https://raw.githubusercontent.com/bandprotocol/launch/master/band-laozi-testnet4/files.tar.gz
+export BIN_FILES_URL=https://raw.githubusercontent.com/bandprotocol/launch/master/band-laozi-testnet6/files.tar.gz
 # Faucet endpoint
-export FAUCET_URL=https://laozi-testnet4.bandchain.org/faucet
+export FAUCET_URL=https://laozi-testnet6.bandchain.org/faucet
 ```
 
 ### Step 1.1: Install Prerequisites
@@ -41,10 +42,10 @@ sudo apt-get upgrade -y && \
 sudo apt-get install -y build-essential curl wget
 ```
 
-- Go 1.16
+- Go 1.16.7
 ```bash=
 # Install Go 1.16.7
-wget https://dl.google.com/go/go1.16.7.linux-amd64.tar.gz
+wget https://go.dev/dl/go1.16.7.linux-amd64.tar.gz
 tar xf go1.16.7.linux-amd64.tar.gz
 sudo mv go /usr/local/go
 
@@ -58,10 +59,10 @@ Go binary should be at `/usr/local/go/bin` and any executable compiled by `go in
 ### Step 1.2: Clone & Install Bandchain Laozi
 
 ```bash=
-# Clone Bandchain Laozi version v2.3.0
+# Clone Bandchain Laozi version v2.3.5
 git clone https://github.com/bandprotocol/chain
 cd chain
-git checkout v2.3.0
+git checkout v2.3.5
 
 # Install binaries to $GOPATH/bin
 make install
@@ -88,9 +89,13 @@ bandd keys add $WALLET_NAME
 ### Step 1.4: Setup seeds
 
 ```bash=
-# Add persistent peers to config.toml
+# Add seeds and persistent peers to config.toml
 sed -E -i \
   "s/seeds = \".*\"/seeds = \"${SEEDS}\"/" \
+  $HOME/.band/config/config.toml
+  
+sed -E -i \
+  "s/persistent_peers = \".*\"/persistent_peers = \"${PERSISTENT_PEERS}\"/" \
   $HOME/.band/config/config.toml
 ```
 
@@ -126,8 +131,8 @@ Based on design, validator need to send a transaction to submit reports based on
 
 There is an update in executor configuration. You can **set up a new executor** by using the instructions on following pages (select either one of these methods):
 
-- [AWS Lambda Function Setup](https://github.com/bandprotocol/data-source-runtime/wiki/Setup-Yoda-Runtime-Using-AWS-Lambda)
-- [Google Cloud Function Setup](https://github.com/bandprotocol/data-source-runtime/wiki/Setup-Yoda-Runtime-Using-Google-Cloud-Function)
+- [AWS Lambda Function Setup](https://github.com/bandprotocol/data-source-runtime/wiki/Setup-Yoda-Executor-Using-AWS-Lambda)
+- [Google Cloud Function Setup](https://github.com/bandprotocol/data-source-runtime/wiki/Setup-Yoda-Executor-Using-Google-Cloud-Function)
 
 On the other hand, you can **update the executor** with the latest configuration:
 - [AWS Lambda Function Update](https://github.com/bandprotocol/data-source-runtime/wiki/Update-Yoda-Executor-on-AWS-Lambda)
@@ -135,11 +140,11 @@ On the other hand, you can **update the executor** with the latest configuration
 
 **Noted** You can use the old executor on laozi-testnet3 (no change from that version)
 
-Then, check Yoda version that we have compiled. It should be `v2.3.0`.
+Then, check Yoda version that we have compiled. It should be `v2.3.5`.
 
 ```bash=
 yoda version
-# v2.3.0
+# v2.3.5
 ```
 
 ### Step 2.2: Configure Yoda
@@ -227,7 +232,7 @@ After `yoda` service has been started, logs can be queried by running `journalct
 
 ### Step 2.4: Wait for latest blocks to be synced
 
-**This is an important step.** We should wait for newly started Bandchain node to sync their blocks until the latest block is reached. The latest block can be checked on [this Block Explorer](https://laozi-testnet4.cosmoscan.io).
+**This is an important step.** We should wait for newly started Bandchain node to sync their blocks until the latest block is reached. The latest block can be checked on [this Block Explorer](https://laozi-testnet6.cosmoscan.io/).
 
 ## Step 3: Become a Validator
 
@@ -259,7 +264,7 @@ bandd tx staking create-validator \
     --chain-id $CHAIN_ID
 ```
 
-After became a validator, the validator node will be shown on Block Explorer [here](https://laozi-testnet4.cosmoscan.io/validators).
+After became a validator, the validator node will be shown on Block Explorer [here](https://laozi-testnet6.cosmoscan.io/validators).
 
 
 ### Step 3.3: Register Reporters and Become Oracle Provider
@@ -302,7 +307,7 @@ bandd query oracle validator $(bandd keys show -a $WALLET_NAME --bech val)
 # }
 ```
 
-And now you have become a validator on Bandchain Laozi testnet #4.
+And now you have become a validator on Bandchain Laozi testnet #6.
 
 Happy staking :chart_with_upwards_trend:, and may the **HODL** be with you.
 

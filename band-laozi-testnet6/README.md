@@ -88,7 +88,7 @@ bandd keys add $WALLET_NAME
 ### Step 1.4: Setup seeds
 
 ```bash=
-# Add seeds and persistent peers to config.toml
+# Add seeds to config.toml
 sed -E -i \
   "s/seeds = \".*\"/seeds = \"${SEEDS}\"/" \
   $HOME/.band/config/config.toml

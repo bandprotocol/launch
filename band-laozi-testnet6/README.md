@@ -58,10 +58,10 @@ Go binary should be at `/usr/local/go/bin` and any executable compiled by `go in
 ### Step 1.2: Clone & Install Bandchain Laozi
 
 ```bash=
-# Clone Bandchain Laozi version v2.3.5
+# Clone Bandchain Laozi version v2.3.6
 git clone https://github.com/bandprotocol/chain
 cd chain
-git checkout v2.3.5
+git checkout v2.3.6
 
 # Install binaries to $GOPATH/bin
 make install
@@ -135,11 +135,11 @@ On the other hand, you can **update the executor** with the latest configuration
 
 **Noted** You can use the old executor on laozi-testnet5 (no change from that version)
 
-Then, check Yoda version that we have compiled. It should be `v2.3.5`.
+Then, check Yoda version that we have compiled. It should be `v2.3.6`.
 
 ```bash=
 yoda version
-# v2.3.5
+# v2.3.6
 ```
 
 ### Step 2.2: Configure Yoda

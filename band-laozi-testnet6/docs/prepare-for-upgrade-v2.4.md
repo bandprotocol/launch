@@ -31,7 +31,7 @@ cd ~
 rm -rf chain
 git clone https://github.com/bandprotocol/chain
 cd chain
-git checkout v2.3.5
+git checkout v2.3.6
 make install
 ```
 

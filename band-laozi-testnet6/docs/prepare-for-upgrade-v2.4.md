@@ -5,11 +5,12 @@ This document describes methods how to prepare for upgrade v2.4
 > Note: If you are not running node by Cosmovisor, please follow this guide first (Bandchain: [How to migrate from Bandd binary to Cosmovisor](https://github.com/bandprotocol/launch/blob/master/band-laozi-testnet6/docs/migrate-bandd-binary-to-cosmovisor.md))
 
 
-### Step 1: Update Go version to 1.19.1 and reinstall binary
+### Step 1: Update Go version to 1.19.1 and Reinstall Binary
 Remove your old go version and install go version 1.19.1 into your system. 
 
 > Note: You can skip this step if you are running Go version 1.19.1
 
+##### Update Go version
 ```
 cd ~
 source ~/.profile
@@ -23,6 +24,12 @@ wget https://go.dev/dl/go1.19.1.linux-amd64.tar.gz
 tar xf go1.19.1.linux-amd64.tar.gz
 sudo mv go /usr/local/go
 
+# Verify go version
+go version
+```
+
+##### Reinstall Binary
+```
 # Reinstall cosmovisor
 go install github.com/cosmos/cosmos-sdk/cosmovisor/cmd/cosmovisor@v1.0.0
 

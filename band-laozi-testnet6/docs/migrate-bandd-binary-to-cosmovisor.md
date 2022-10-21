@@ -40,7 +40,7 @@ Environment="DAEMON_NAME=bandd"
 Environment="DAEMON_HOME=${HOME}/.band"
 Environment="DAEMON_RESTART_AFTER_UPGRADE=true"
 Environment="DAEMON_ALLOW_DOWNLOAD_BINARIES=false"
-Environment="UNSAFE_SKIP_BACKUP=false"
+Environment="UNSAFE_SKIP_BACKUP=true"
 User=$USERNAME
 ExecStart=${HOME}/go/bin/cosmovisor start
 Restart=always

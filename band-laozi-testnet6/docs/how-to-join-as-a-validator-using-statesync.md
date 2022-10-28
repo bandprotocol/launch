@@ -58,7 +58,7 @@ Go binary should be at `/usr/local/go/bin` and any executable compiled by `go in
 ### Step 1.2: Clone & Install Bandchain Laozi
 
 ```bash=
-# Clone Bandchain Laozi version v2.3.6
+# Clone Bandchain Laozi version v2.4.0
 git clone https://github.com/bandprotocol/chain
 cd chain
 git checkout v2.4.0
@@ -102,11 +102,9 @@ LATEST_HEIGHT=$(curl -s $RPC_ENDPOINT/block | jq -r .result.block.header.height)
 TRUST_HEIGHT=$(($LATEST_HEIGHT-45000))
 TRUST_HASH=$(curl -s "$RPC_ENDPOINT/block?height=$TRUST_HEIGHT" | jq -r .result.block_id.hash)
 
-
  # show trust height and trust hash
  echo "TRUST HEIGHT: $TRUST_HEIGHT"
  echo "TRUST HASH: $TRUST_HASH"
-
 ```
 
 ```bash=
@@ -200,7 +198,7 @@ On the other hand, you can **update the executor** with the latest configuration
 
 **Noted** You can use the old executor on laozi-testnet5 (no change from that version)
 
-Then, check Yoda version that we have compiled. It should be `v2.3.6`.
+Then, check Yoda version that we have compiled. It should be `v2.4.0`.
 
 ```bash=
 yoda version

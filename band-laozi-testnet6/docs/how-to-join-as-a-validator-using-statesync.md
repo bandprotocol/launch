@@ -85,13 +85,18 @@ wget -qO- $BIN_FILES_URL | tar xvz -C $HOME/.band/
 bandd keys add $WALLET_NAME
 ```
 
-### Step 1.4: Setup seeds
+### Step 1.4: Setup seeds and minimum gas price
 
 ```bash=
 # Add seeds to config.toml
 sed -E -i \
   "s/seeds = \".*\"/seeds = \"${SEEDS}\"/" \
   $HOME/.band/config/config.toml
+
+# Add minimum gas price
+sed -E -i \
+  "s/^minimum-gas-prices *=.*/minimum-gas-prices = \"0.0025uband\"/" \
+  $HOME/.band/config/app.toml
 ```
 
 ### Step 1.5: Setup State Sync config

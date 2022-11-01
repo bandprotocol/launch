@@ -184,23 +184,19 @@ go install github.com/cosmos/cosmos-sdk/cosmovisor/cmd/cosmovisor@v1.0.0
 
 # Reinstall binary for current version (bandd, yoda)
 cd ~
-rm -rf chain
-git clone https://github.com/bandprotocol/chain
 cd chain
 git checkout v2.3.6
 make install
 ```
 
 ### Step 3.2: Clone & Install the new Bandchain Laozi
-Make new bandd binary from chain v2.4.0
+Make new bandd binary from chain v2.4.1
 
 ```bash=
-# Clone Bandchain Laozi version 2.4.0
+# Clone Bandchain Laozi version 2.4.1
 cd ~
-rm -rf chain
-git clone https://github.com/bandprotocol/chain
 cd chain
-git checkout v2.4.0
+git checkout v2.4.1
 
 # Install binaries to $GOPATH/bin
 make install
@@ -235,11 +231,11 @@ On the other hand, you can **update the executor** with the latest configuration
 
 **Noted** You can use the old executor on laozi-testnet5 (no change from that version)
 
-Then, check Yoda version that we have compiled. It should be `v2.3.6`.
+Then, check Yoda version that we have compiled. It should be `v2.4.1`.
 
 ```bash=
 yoda version
-# v2.4.0
+# v2.4.1
 ```
 
 ### Step 4.2: Configure Yoda

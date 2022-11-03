@@ -1,6 +1,6 @@
 # Bandchain Laozi Testnet #6: How to Join as a Validator
 
-This document describes methods on how to join as a validator in Laozi testnet #6 without using State Sync. If you want to join using State Sync please follow this document https://github.com/bandprotocol/launch/blob/master/band-laozi-testnet6/docs/how-to-join-as-a-validator-using-statesync.md
+This document describes methods on how to join as a validator in Laozi testnet #6 without using State Sync. If you want to join using State Sync please follow this document [How to Join as a Validator using State Sync](https://github.com/bandprotocol/launch/blob/master/band-laozi-testnet6/docs/how-to-join-as-a-validator-using-statesync.md)
 
 ## Step 1: Set Up Validator Node
 

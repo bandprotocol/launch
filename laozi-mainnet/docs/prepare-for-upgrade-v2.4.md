@@ -90,7 +90,3 @@ If you are a validator, we recommend restarting the Yoda service after the node 
 # Restart yoda
 sudo systemctl restart yoda
 ```
-
-
-
-

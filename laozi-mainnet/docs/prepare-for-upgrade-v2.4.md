@@ -35,7 +35,6 @@ go install github.com/cosmos/cosmos-sdk/cosmovisor/cmd/cosmovisor@v1.0.0
 
 # Reinstall binary for current version (bandd, yoda)
 cd ~
-rm -rf chain
 git clone https://github.com/bandprotocol/chain
 cd chain
 git checkout v2.3.6
@@ -47,10 +46,7 @@ Make new bandd binary from chain v2.4.1
 
 ```
 # Clone Bandchain Laozi version 2.4.1
-cd ~
-rm -rf chain
-git clone https://github.com/bandprotocol/chain
-cd chain
+cd ~/chain
 git checkout v2.4.1
 
 # Install binaries to $GOPATH/bin

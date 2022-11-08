@@ -37,6 +37,7 @@ go install github.com/cosmos/cosmos-sdk/cosmovisor/cmd/cosmovisor@v1.0.0
 cd ~
 git clone https://github.com/bandprotocol/chain
 cd chain
+git fetch
 git checkout v2.3.6
 make install
 ```

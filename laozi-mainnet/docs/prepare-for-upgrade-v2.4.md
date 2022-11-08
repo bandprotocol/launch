@@ -47,7 +47,10 @@ Make new bandd binary from chain v2.4.1
 
 ```
 # Clone Bandchain Laozi version 2.4.1
-cd ~/chain
+cd ~
+git clone https://github.com/bandprotocol/chain
+cd chain
+git fetch
 git checkout v2.4.1
 
 # Install binaries to $GOPATH/bin

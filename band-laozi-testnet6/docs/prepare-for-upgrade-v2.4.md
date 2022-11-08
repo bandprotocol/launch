@@ -35,23 +35,21 @@ go install github.com/cosmos/cosmos-sdk/cosmovisor/cmd/cosmovisor@v1.0.0
 
 # Reinstall binary for current version (bandd, yoda)
 cd ~
-rm -rf chain
 git clone https://github.com/bandprotocol/chain
 cd chain
+git fetch
 git checkout v2.3.6
 make install
 ```
 
 ### Step 2: Clone & Install the new Bandchain Laozi
-Make new bandd binary from chain v2.4.0
+Make new bandd binary from chain v2.4.1
 
 ```
-# Clone Bandchain Laozi version 2.4.0
-cd ~
-rm -rf chain
-git clone https://github.com/bandprotocol/chain
-cd chain
-git checkout v2.4.0
+# Clone Bandchain Laozi version 2.4.1
+cd ~/chain
+git fetch
+git checkout v2.4.1
 
 # Install binaries to $GOPATH/bin
 make install
@@ -94,7 +92,3 @@ If you are a validator, we recommend restarting the Yoda service after the node 
 # Restart yoda
 sudo systemctl restart yoda
 ```
-
-
-
-

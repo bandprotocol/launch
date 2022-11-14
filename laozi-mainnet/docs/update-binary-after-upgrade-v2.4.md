@@ -1,4 +1,4 @@
-# How to update node after the upgrade was successfully
+# How to update node after the upgrade was successful
 
 **This step should be executed after the upgrade height is reached only**
 

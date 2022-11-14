@@ -349,6 +349,7 @@ bandd tx staking create-validator \
     --commission-max-rate 0.2 \
     --commission-rate 0.1 \
     --from $WALLET_NAME \
+    --gas-prices 0.0025uband \
     --min-self-delegation 1 \
     --moniker "$MONIKER" \
     --pubkey $(bandd tendermint show-validator) \
@@ -368,6 +369,7 @@ Firstly, reporter accounts must be create on Bandchain by supplying some small a
 # Send 1uband from a wallet to each reporter.
 bandd tx multi-send 1uband $(yoda keys list -a) \
   --from $WALLET_NAME \
+  --gas-prices 0.0025uband \
   --chain-id $CHAIN_ID
 ```
 
@@ -376,6 +378,7 @@ Secondly, grant all reporters for the validator, so that oracle requests for val
 ```bash=
 bandd tx oracle add-reporters $(yoda keys list -a) \
   --from $WALLET_NAME \
+  --gas-prices 0.0025uband \
   --chain-id $CHAIN_ID
 ```
 
@@ -384,6 +387,7 @@ Finally, activate the validator to become an oracle provider
 ```bash=
 bandd tx oracle activate \
   --from $WALLET_NAME \
+  --gas-prices 0.0025uband \
   --chain-id $CHAIN_ID
 ```
 

@@ -32,20 +32,6 @@ mkdir -p $HOME/.band/cosmovisor/upgrades/v2_5/bin
 cp $HOME/go/bin/bandd $HOME/.band/cosmovisor/upgrades/v2_5/bin
 ```
 
-### Step 4: Restart daemon service
-
-```
-# Restart bandd
-sudo systemctl restart bandd
-```
-
-If you are a validator, we recommend restarting the Yoda service after the node is synced up.
-
-```
-# Restart yoda
-sudo systemctl restart yoda
-```
-
 That’s all! Now, you just have to wait until the upgrade comes.
 
 ## After the upgraded block

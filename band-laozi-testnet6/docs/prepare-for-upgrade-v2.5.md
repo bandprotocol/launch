@@ -23,7 +23,7 @@ make install
 bandd version
 ```
 
-### Step 2: Install and provide new binary to Cosmovisor
+### Step 2: Provide new binary to Cosmovisor
 Provide bandd binary to Cosmovisor
 
 ```

@@ -9,6 +9,7 @@ Make new bandd binary from chain v2.5.1
 
 ```
 # Clone Bandchain Laozi version 2.5.1
+source ~/.profile
 cd ~
 git clone https://github.com/bandprotocol/chain
 cd chain

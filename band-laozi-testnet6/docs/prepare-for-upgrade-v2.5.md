@@ -4,7 +4,7 @@ This document describes methods how to prepare for upgrade v2.5
 
 > Note: If you are not running node by Cosmovisor, please follow this guide first (Bandchain: [How to migrate from Bandd binary to Cosmovisor](https://github.com/bandprotocol/launch/blob/master/band-laozi-testnet6/docs/migrate-bandd-binary-to-cosmovisor.md))
 
-### Step 1: Clone & Install the new Bandchain Laozi
+### Step 1: Clone & Install the new BandChain Laozi
 Make new bandd binary from chain v2.5.1
 
 ```
@@ -36,7 +36,7 @@ That’s all! Now, you just have to wait until the upgrade comes.
 
 ## After the upgraded block
 
-#### Step 1: Restart Yoda
+### Step 1: Restart Yoda
 If you are a validator, we recommend restarting the Yoda service after the node is synced up.
 
 ```

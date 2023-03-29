@@ -40,6 +40,8 @@ That’s all! Now, you just have to wait until the upgrade comes.
 If you are a validator, we recommend restarting the Yoda service after the node is synced up.
 
 ```
-# Restart yoda
-sudo systemctl restart yoda
+# Restart yoda with gap time
+sudo service yoda stop
+sleep 10
+sudo service yoda start
 ```

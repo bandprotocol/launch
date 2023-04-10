@@ -20,7 +20,7 @@ git checkout v2.5.1
 make install
 
 # Verify bandd version
-bandd version
+bandd version # 2.5.1
 ```
 
 ### Step 2: Provide new binary to Cosmovisor

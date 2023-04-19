@@ -20,6 +20,9 @@ sudo systemctl stop yoda
 Make new Bandd binary from chain v2.5.1
 
 ```bash
+source ~/.profile
+cd ~
+git clone https://github.com/bandprotocol/chain
 cd chain
 git fetch && git checkout v2.5.1
 make install

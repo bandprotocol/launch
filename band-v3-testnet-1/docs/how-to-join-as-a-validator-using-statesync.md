@@ -6,9 +6,7 @@ This document describes methods on how to join as a validator in Band V3 Testnet
 
 ## Hardware Requirements
 
-You have to have at least 16 GB of RAM and 4 CPU Cores to run a node.
-
-**Note:** Storage size for validators will depend on the level of pruning.
+You have to have at least 16 GB of RAM, 4 CPU Cores and storage size of 100GB to run a node.
 
 ## Step 1: Set Up Validator Node
 
@@ -18,7 +16,7 @@ Assuming to run on Ubuntu 24.04 LTS allowing connection on port `26656` for P2P 
 
 Before beginning instructions, following variables should be set to be used in further instructions. **Please make sure that these variables is set everytime when using the new shell session**.
 
-```bash=
+```bash
 # Chain ID of Band V3 Testnet #1
 export CHAIN_ID="band-v3-testnet-1"
 # Wallet name to be used as validator's account, please change this into your name (no whitespace).
@@ -45,7 +43,7 @@ The following application is required for building and running Bandchain node.
 - make, gcc, g++ (can be obtained from `build-essential` package on linux)
 - wget, curl for downloading files
 
-```bash=
+```bash
 # install required tools
 sudo apt-get update && \
 sudo apt-get upgrade -y && \
@@ -53,7 +51,7 @@ sudo apt-get install -y build-essential curl wget jq
 ```
 
 - Go 1.22.3
-```bash=
+```bash
 # Install Go 1.22.3
 wget https://go.dev/dl/go1.22.3.linux-amd64.tar.gz
 tar xf go1.22.3.linux-amd64.tar.gz
@@ -72,7 +70,7 @@ Install [Docker for Ubuntu](https://docs.docker.com/engine/install/ubuntu/)
 
 ### Step 1.2: Clone & Install Band V3 binary
 
-```bash=
+```bash
 # Clone Band binary version v3.0.0-rc1
 git clone https://github.com/bandprotocol/chain
 cd chain
@@ -84,7 +82,7 @@ make install
 
 ### Step 1.3: Initialize the Bandchain and Download genesis file
 
-```bash=
+```bash
 cd $HOME
 
 # Initialize configuration and genesis state
@@ -99,7 +97,7 @@ bandd keys add $WALLET_NAME
 
 ### Step 1.4: Setup seeds and minimum gas price
 
-```bash=
+```bash
 # Add seeds to config.toml
 sed -E -i \
   "s/seeds = \".*\"/seeds = \"${SEEDS}\"/" \
@@ -117,7 +115,7 @@ sed -E -i \
 ```
 
 ### Step 1.5: Setup State Sync config
-```bash=
+```bash
 # Get trust height and trust hash
 LATEST_HEIGHT=$(curl -s https://rpc.band-v3-testnet.bandchain.org/block | jq -r .result.block.header.height);
 TRUST_HEIGHT=$(($LATEST_HEIGHT-10000))
@@ -128,7 +126,7 @@ echo "TRUST HEIGHT: $TRUST_HEIGHT"
 echo "TRUST HASH: $TRUST_HASH"
 ```
 
-```bash=
+```bash
 # Enable State Sync
 sed -i \
     '/\[statesync\]/,+34 s/enable = false/enable = true/' \
@@ -156,7 +154,7 @@ This step provides procedures to setup Cosmovisor. Cosmovisor is a small process
 ### Step 2.1: Setup environment variables
 Add required environment variables for Cosmovisor into your profile
 
-```bash=
+```bash
 cd $HOME
 echo "export DAEMON_NAME=bandd" >> $HOME/.profile
 echo "export DAEMON_HOME=$HOME/.band" >> $HOME/.profile
@@ -165,7 +163,7 @@ source $HOME/.profile
 ### Step 2.2: Setup Cosmovisor
 Install Cosmovisor and provide bandd binary to Cosmovisor
 
-```bash=
+```bash
 # Install Cosmovisor
 go install cosmossdk.io/tools/cosmovisor/cmd/cosmovisor@v1.5.0
 
@@ -178,7 +176,7 @@ cp $HOME/go/bin/bandd $HOME/.band/cosmovisor/genesis/bin
 ### Step 2.3: Update Bandchain service
 In this step, we will write the daemon service to use Cosmovisor instead of Bandd binary.
 
-```bash=
+```bash
 # Write bandd service file to /etc/systemd/system/bandd.service
 export USERNAME=$(whoami)
 sudo -E bash -c 'cat << EOF > /etc/systemd/system/bandd.service
@@ -205,7 +203,7 @@ EOF'
 
 To register `bandd` services, run the following commands.
 
-```bash=
+```bash
 # Register bandd daemon to systemctl
 sudo systemctl enable bandd
 ```
@@ -225,7 +223,7 @@ There is an update in the executor configuration. You can **set up a new executo
 
 Then, check Yoda version that we have compiled. It should be `v3.0.0-rc1`.
 
-```bash=
+```bash
 yoda version
 # v3.0.0-rc1
 ```
@@ -234,7 +232,7 @@ yoda version
 
 Firstly, configure Yoda's basic configurations
 
-```bash=
+```bash
 rm -rf $HOME/.yoda # clear old config if exist
 yoda config chain-id $CHAIN_ID
 yoda config node http://localhost:26657
@@ -246,7 +244,7 @@ yoda config validator $(bandd keys show $WALLET_NAME -a --bech val)
 
 Secondly, add multiple reporter accounts to allow Yoda submitting transactions concurrently.
 
-```bash=
+```bash
 yoda keys add REPORTER_1
 yoda keys add REPORTER_2
 yoda keys add REPORTER_3
@@ -256,7 +254,7 @@ yoda keys add REPORTER_5
 
 Thirdly, config Lambda Executor endpoint
 
-```bash=
+```bash
 export EXECUTOR_URL=<YOUR_EXECUTOR_URL>
 yoda config executor "rest:${EXECUTOR_URL}?timeout=10s"
 ```
@@ -264,7 +262,7 @@ yoda config executor "rest:${EXECUTOR_URL}?timeout=10s"
 
 We also do recommend to use `systemctl` the same as `bandd`.
 
-```bash=
+```bash
 # Write yoda service to /etc/systemd/system/yoda.service
 export USERNAME=$(whoami)
 sudo -E bash -c 'cat << EOF > /etc/systemd/system/yoda.service
@@ -286,7 +284,7 @@ EOF'
 
 To register `yoda` services, run the following commands.
 
-```bash=
+```bash
 # Register yoda to systemctl
 sudo systemctl enable yoda
 ```
@@ -297,13 +295,13 @@ Based on design, validators need to submit prices based on current feeds interva
 
 ### Step 4.1: Download config file
 
-```bash=
+```bash
 mkdir -p $HOME/.bothan && wget -O $HOME/.bothan/config.toml $BOTHAN_CONFIG_FILE_URL
 ```
 
 ### Step 4.2: Run Bothan docker
 
-```bash=
+```bash
 sudo docker pull bandprotocol/bothan-api:v0.0.1-beta.1
 CONTAINER_ID=$(sudo docker run --restart always --log-opt max-size=50m --log-opt max-file=5 -d --name bothan -v "$HOME/.bothan:/root/.bothan" -p 50051:50051 bandprotocol/bothan-api:v0.0.1-beta.1)
 ```
@@ -312,7 +310,7 @@ CONTAINER_ID=$(sudo docker run --restart always --log-opt max-size=50m --log-opt
 
 To export your Bothan private key, run the following command:
 
-```bash=
+```bash
 sudo docker exec -it $CONTAINER_ID /bin/sh -c "bothan key export"
 ```
 
@@ -322,11 +320,12 @@ This will display your private key. **Make sure to save it in a secure location*
 
 To retrieve your public key, run this command:
 
-```bash=
+```bash
 sudo docker exec -it $CONTAINER_ID /bin/sh -c "bothan key display"
 ```
 
-After retrieving your public key, submit it via (this form)[https://forms.gle/4ZDHPmVqMCWt6W5q6]. **Do not share your private key.**
+After retrieving your public key, submit it via (this form). **Do not share your private key.**
+<!-- TODO: add form -->
 
 ## Step 5: Setup Grogu
 
@@ -336,7 +335,7 @@ Based on design, validators need to send a transaction to submit prices based on
 
 Firstly, configure Grogu's basic configurations
 
-```bash=
+```bash
 grogu config chain-id $CHAIN_ID
 grogu config validator $(bandd keys show $WALLET_NAME -a --bech val)
 grogu config broadcast-timeout "5m"
@@ -347,7 +346,7 @@ grogu config nodes http://localhost:26657
 
 Secondly, add multiple feeder accounts to allow Grogu submitting transactions concurrently.
 
-```bash=
+```bash
 grogu keys add FEEDER_1
 grogu keys add FEEDER_2
 grogu keys add FEEDER_3 
@@ -357,7 +356,7 @@ grogu keys add FEEDER_5
 
 Lastly, config bothan price service endpoint
 
-```bash=
+```bash
 grogu config bothan "localhost:50051"
 ```
 
@@ -365,7 +364,7 @@ grogu config bothan "localhost:50051"
 
 We also do recommend to use `systemctl` the same as `bandd` and `yoda`.
 
-```bash=
+```bash
 # Write grogu service to /etc/systemd/system/grogu.service
 export USERNAME=$(whoami)
 sudo -E bash -c 'cat << EOF > /etc/systemd/system/grogu.service
@@ -387,7 +386,7 @@ EOF'
 
 To register `grogu` services, run the following commands.
 
-```bash=
+```bash
 # Register grogu to systemctl
 sudo systemctl enable grogu
 ```
@@ -396,7 +395,7 @@ sudo systemctl enable grogu
 
 Then start all services
 
-```bash=
+```bash
 # Start bandd daemon
 sudo systemctl start bandd
 # Start yoda daemon
@@ -405,11 +404,12 @@ sudo systemctl start yoda
 sudo systemctl start grogu
 ```
 
-After a service has been started, logs can be queried by running `journalctl -u <SERVICE_NAME>.service -f` command. Log should be similar to the following log example below. Once verified, you can stop tailing the log by typing `Control-C`.
+After a service has been started, logs can be queried by running `journalctl -u <SERVICE_NAME>.service -f` command. Once verified, you can stop tailing the log by typing `Control-C`.
 
 ### Step 6.1: Wait for latest blocks to be synced
 
-**This is an important step.** We should wait for newly started Bandchain node to sync their blocks until the latest block is reached. The latest block can be checked on [this Block Explorer](https://band-v3-testnet.cosmoscan.io/).
+**This is an important step.** We should wait for newly started Bandchain node to sync their blocks until the latest block is reached. The latest block can be checked on [this Block Explorer].
+<!-- TODO: add block explorer -->
 
 ## Step 7: Become a Validator
 
@@ -417,7 +417,7 @@ This step provides procedures to register the node as a validator.
 
 ### Step 7.1: Create new Account to be Used as Validator
 
-```bash=
+```bash
 # Request new coins from faucet
 curl --location --request POST "${FAUCET_URL}" \
 --header 'Content-Type: application/json' \
@@ -430,7 +430,7 @@ curl --location --request POST "${FAUCET_URL}" \
 
 Start by defining the required and optional variables.
 
-```bash=
+```bash
 # Required fields
 AMOUNT="3000000uband"
 COMMISSION_RATE="0.1"
@@ -443,44 +443,46 @@ PUBKEY=$(bandd tendermint show-validator)
 
 **note:** This command is optional. If you don't want to provide these info, you don't have to run this command.
 
-```bash=
+```bash
 # Optional fields
-OPTIONAL_IDENTITY="<YOUR_IDENTITY_SIGNATURE>"
-OPTIONAL_WEBSITE="<YOUR_WEBSITE>"
-OPTIONAL_SECURITY="<YOUR_SECURITY_CONTACT_EMAIL>"
-OPTIONAL_DETAILS="<YOUR_DETAILS>"
+OPTIONAL_IDENTITY=<YOUR_IDENTITY_SIGNATURE>
+OPTIONAL_WEBSITE=<YOUR_WEBSITE>
+OPTIONAL_SECURITY=<YOUR_SECURITY_CONTACT_EMAIL>
+OPTIONAL_DETAILS=<YOUR_DETAILS>
 ```
 
 Use the command below to dynamically generate the `validator.json` file with the specified variables.
 
-```bash=
-echo '{
-    "pubkey": '$PUBKEY',
-    "amount": "'"$AMOUNT"'",
-    "moniker": "'"$MONIKER"'",
-    "identity": "'"$OPTIONAL_IDENTITY"'",
-    "website": "'"$OPTIONAL_WEBSITE"'",
-    "security": "'"$OPTIONAL_SECURITY"'",
-    "details": "'"$OPTIONAL_DETAILS"'",
-    "commission-rate": "'"$COMMISSION_RATE"'",
-    "commission-max-rate": "'"$COMMISSION_MAX_RATE"'",
-    "commission-max-change-rate": "'"$COMMISSION_MAX_CHANGE_RATE"'",
-    "min-self-delegation": "'"$MIN_SELF_DELEGATION"'"
-}' > validator.json
+```bash
+cat <<EOF > $HOME/validator.json
+{
+    "pubkey": $PUBKEY,
+    "amount": "$AMOUNT",
+    "moniker": "$MONIKER",
+    "identity": "$OPTIONAL_IDENTITY",
+    "website": "$OPTIONAL_WEBSITE",
+    "security": "$OPTIONAL_SECURITY",
+    "details": "$OPTIONAL_DETAILS",
+    "commission-rate": "$COMMISSION_RATE",
+    "commission-max-rate": "$COMMISSION_MAX_RATE",
+    "commission-max-change-rate": "$COMMISSION_MAX_CHANGE_RATE",
+    "min-self-delegation": "$MIN_SELF_DELEGATION"
+}
+EOF
 ```
 
 Then, run the following command to create the validator using the `validator.json`.
 
-```bash=
-bandd tx staking create-validator validator.json \
+```bash
+bandd tx staking create-validator $HOME/validator.json \
     --from $WALLET_NAME \
     --gas-prices $GAS_PRICES \
     --chain-id $CHAIN_ID \
     -y
 ```
 
-After became a validator, the validator node will be shown on Block Explorer [here](https://band-v3-testnet.cosmoscan.io/validators).
-
+After became a validator, the validator node will be shown on Block Explorer [here].
+<!-- TODO: add block explorer -->
 
 ### Step 7.3: Register Reporters
 
@@ -488,7 +490,7 @@ Now, Yoda have multiple reporters. In order to grant the reporters to report dat
 
 Firstly, reporter accounts must be create on Bandchain by supplying some small amount of BAND tokens.
 
-```bash=
+```bash
 # Send 1uband from a wallet to each reporter.
 bandd tx bank multi-send $WALLET_NAME $(yoda keys list -a) 1uband \
   --chain-id $CHAIN_ID \
@@ -499,7 +501,7 @@ bandd tx bank multi-send $WALLET_NAME $(yoda keys list -a) 1uband \
 
 Secondly, grant all reporters for the validator, so that oracle requests for validator can be sent by the reporters.
 
-```bash=
+```bash
 bandd tx oracle add-reporters $(yoda keys list -a) \
   --from $WALLET_NAME \
   --chain-id $CHAIN_ID \
@@ -512,7 +514,7 @@ bandd tx oracle add-reporters $(yoda keys list -a) \
 
 Next, feeder accounts must be create on BandChain by supplying some small amount of BAND tokens.
 
-```bash=
+```bash
 bandd tx bank multi-send $WALLET_NAME $(grogu keys list -a) 1uband \
   --chain-id $CHAIN_ID \
   --gas-prices 0.0025uband \
@@ -523,7 +525,7 @@ bandd tx bank multi-send $WALLET_NAME $(grogu keys list -a) 1uband \
 
 Then, grant all feeders for the validator, so that submit prices transactions can be sent by the feeders.
 
-```bash=
+```bash
 bandd tx feeds add-feeders $(grogu keys list -a) \
   --from $WALLET_NAME \
   --chain-id $CHAIN_ID \
@@ -537,7 +539,7 @@ bandd tx feeds add-feeders $(grogu keys list -a) \
 
 Finally, activate the validator to become an oracle provider
 
-```bash=
+```bash
 bandd tx oracle activate \
   --from $WALLET_NAME \
   --chain-id $CHAIN_ID \
@@ -548,7 +550,7 @@ bandd tx oracle activate \
 
 If all procedures are successful, then oracle provider status for the validator should be `active`.
 
-```bash=
+```bash
 bandd query oracle validator $(bandd keys show -a $WALLET_NAME --bech val)
 
 # {

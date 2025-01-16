@@ -2,7 +2,13 @@
 
 **Note: This documentation is not final and is intended for preparation purposes. It may be subject to change after the testnet launch.**
 
-This document describes methods on how to join as a validator in Band V3 Testnet #1.
+This document describes methods on how to join as a validator in Band V3 Testnet #1 without using State Sync. If you want to join using State Sync please follow this document [How to Join as a Validator using State Sync](https://github.com/bandprotocol/launch/blob/master/band-v3-testnet-1/docs/how-to-join-as-a-validator-using-statesync.md)
+
+## Hardware Requirements
+
+You have to have at least 16 GB of RAM and 4 CPU Cores to run a node.
+
+**Note:** Storage size for validators will depend on the level of pruning.
 
 ## Step 1: Set Up Validator Node
 
@@ -29,7 +35,6 @@ export GENESIS_FILE_URL=
 <!-- TODO: add bothan config url -->
 export BOTHAN_CONFIG_FILE_URL=
 # Faucet endpoint
-<!-- TODO: check faucet url -->
 export FAUCET_URL=https://band-v3-testnet.bandchain.org/faucet
 ```
 
@@ -55,13 +60,15 @@ tar xf go1.22.3.linux-amd64.tar.gz
 sudo mv go /usr/local/go
 
 # Set Go path to $PATH variable
-echo "export PATH=\$PATH:/usr/local/go/bin:~/go/bin" >> $HOME/.profile
-source ~/.profile
+echo "export PATH=\$PATH:/usr/local/go/bin:$HOME/go/bin" >> $HOME/.profile
+source $HOME/.profile
 ```
 
-Go binary should be at `/usr/local/go/bin` and any executable compiled by `go install` command should be at `~/go/bin`
+Go binary should be at `/usr/local/go/bin` and any executable compiled by `go install` command should be at `$HOME/go/bin`
 
-- [Docker](https://docs.docker.com/engine/install/ubuntu/)
+- Docker
+
+Install [Docker for Ubuntu](https://docs.docker.com/engine/install/ubuntu/)
 
 ### Step 1.2: Clone & Install Band V3 binary
 
@@ -116,10 +123,10 @@ This step provides procedures to setup Cosmovisor. Cosmovisor is a small process
 Add required environment variables for Cosmovisor into your profile
 
 ```bash=
-cd ~
-echo "export DAEMON_NAME=bandd" >> ~/.profile
-echo "export DAEMON_HOME=$HOME/.band" >> ~/.profile
-source ~/.profile
+cd $HOME
+echo "export DAEMON_NAME=bandd" >> $HOME/.profile
+echo "export DAEMON_HOME=$HOME/.band" >> $HOME/.profile
+source $HOME/.profile
 ```
 ### Step 2.2: Setup Cosmovisor
 Install Cosmovisor and provide bandd binary to Cosmovisor
@@ -194,7 +201,7 @@ yoda version
 Firstly, configure Yoda's basic configurations
 
 ```bash=
-rm -rf ~/.yoda # clear old config if exist
+rm -rf $HOME/.yoda # clear old config if exist
 yoda config chain-id $CHAIN_ID
 yoda config node http://localhost:26657
 yoda config broadcast-timeout "5m"
@@ -263,8 +270,8 @@ mkdir -p $HOME/.bothan && wget -O $HOME/.bothan/config.toml $BOTHAN_CONFIG_FILE_
 ### Step 4.2: Run Bothan docker
 
 ```bash=
-docker pull bandprotocol/bothan-api:v0.0.1-beta.1
-CONTAINER_ID=$(docker run --restart always --log-opt max-size=50m --log-opt max-file=5 -d --name bothan -v "$HOME/.bothan:/root/.bothan" -p 50051:50051 bandprotocol/bothan-api:v0.0.1-beta.1)
+sudo docker pull bandprotocol/bothan-api:v0.0.1-beta.1
+CONTAINER_ID=$(sudo docker run --restart always --log-opt max-size=50m --log-opt max-file=5 -d --name bothan -v "$HOME/.bothan:/root/.bothan" -p 50051:50051 bandprotocol/bothan-api:v0.0.1-beta.1)
 ```
 
 ### Step 4.3: Save your Private Key
@@ -272,7 +279,7 @@ CONTAINER_ID=$(docker run --restart always --log-opt max-size=50m --log-opt max-
 To export your Bothan private key, run the following command:
 
 ```bash=
-docker exec -it $CONTAINER_ID /bin/sh -c "bothan key export"
+sudo docker exec -it $CONTAINER_ID /bin/sh -c "bothan key export"
 ```
 
 This will display your private key. **Make sure to save it in a secure location**, as it is essential for recovering your key using the bothan key import command.
@@ -282,7 +289,7 @@ This will display your private key. **Make sure to save it in a secure location*
 To retrieve your public key, run this command:
 
 ```bash=
-docker exec -it $CONTAINER_ID /bin/sh -c "bothan key display"
+sudo docker exec -it $CONTAINER_ID /bin/sh -c "bothan key display"
 ```
 
 After retrieving your public key, submit it via (this form)[https://forms.gle/4ZDHPmVqMCWt6W5q6]. **Do not share your private key.**
@@ -297,13 +304,12 @@ Firstly, configure Grogu's basic configurations
 
 ```bash=
 grogu config chain-id $CHAIN_ID
-grogu config validator $(bandd keys show $WALLET_NAME -a --bech val --keyring-backend test)
+grogu config validator $(bandd keys show $WALLET_NAME -a --bech val)
 grogu config broadcast-timeout "5m"
 grogu config rpc-poll-interval "1s"
 grogu config max-try 5
 grogu config nodes http://localhost:26657
 ```
-<!-- TODO: check Grogu nodes url -->
 
 Secondly, add multiple feeder accounts to allow Grogu submitting transactions concurrently.
 
@@ -370,7 +376,6 @@ After a service has been started, logs can be queried by running `journalctl -u 
 ### Step 6.1: Wait for latest blocks to be synced
 
 **This is an important step.** We should wait for newly started Bandchain node to sync their blocks until the latest block is reached. The latest block can be checked on [this Block Explorer](https://band-v3-testnet.cosmoscan.io/).
-<!-- TODO: check cosmoscan url -->
 
 ## Step 7: Become a Validator
 
@@ -389,23 +394,58 @@ curl --location --request POST "${FAUCET_URL}" \
 
 ### Step 7.2: Stake Tokens with the Validator Account
 
+Start by defining the required and optional variables.
+
 ```bash=
-bandd tx staking create-validator \
-    --amount 3000000uband \
-    --commission-max-change-rate 0.01 \
-    --commission-max-rate 0.2 \
-    --commission-rate 0.1 \
+# Required fields
+AMOUNT="3000000uband"
+COMMISSION_RATE="0.1"
+COMMISSION_MAX_RATE="0.2"
+COMMISSION_MAX_CHANGE_RATE="0.01"
+MIN_SELF_DELEGATION="1"
+GAS_PRICES="0.0025uband"
+PUBKEY=$(bandd tendermint show-validator)
+```
+
+**note:** This command is optional. If you don't want to provide these info, you don't have to run this command.
+
+```bash=
+# Optional fields
+OPTIONAL_IDENTITY="<YOUR_IDENTITY_SIGNATURE>"
+OPTIONAL_WEBSITE="<YOUR_WEBSITE>"
+OPTIONAL_SECURITY="<YOUR_SECURITY_CONTACT_EMAIL>"
+OPTIONAL_DETAILS="<YOUR_DETAILS>"
+```
+
+Use the command below to dynamically generate the `validator.json` file with the specified variables.
+
+```bash=
+echo '{
+    "pubkey": '$PUBKEY',
+    "amount": "'"$AMOUNT"'",
+    "moniker": "'"$MONIKER"'",
+    "identity": "'"$OPTIONAL_IDENTITY"'",
+    "website": "'"$OPTIONAL_WEBSITE"'",
+    "security": "'"$OPTIONAL_SECURITY"'",
+    "details": "'"$OPTIONAL_DETAILS"'",
+    "commission-rate": "'"$COMMISSION_RATE"'",
+    "commission-max-rate": "'"$COMMISSION_MAX_RATE"'",
+    "commission-max-change-rate": "'"$COMMISSION_MAX_CHANGE_RATE"'",
+    "min-self-delegation": "'"$MIN_SELF_DELEGATION"'"
+}' > validator.json
+```
+
+Then, run the following command to create the validator using the `validator.json`.
+
+```bash=
+bandd tx staking create-validator validator.json \
     --from $WALLET_NAME \
-    --gas-prices 0.0025uband \
-    --min-self-delegation 1 \
-    --moniker "$MONIKER" \
-    --pubkey $(bandd tendermint show-validator) \
-    --chain-id $CHAIN_ID
+    --gas-prices $GAS_PRICES \
+    --chain-id $CHAIN_ID \
+    -y
 ```
 
 After became a validator, the validator node will be shown on Block Explorer [here](https://band-v3-testnet.cosmoscan.io/validators).
-<!-- TODO: check cosmoscan url -->
-
 
 ### Step 7.3: Register Reporters
 
@@ -417,7 +457,6 @@ Firstly, reporter accounts must be create on Bandchain by supplying some small a
 # Send 1uband from a wallet to each reporter.
 bandd tx bank multi-send $WALLET_NAME $(yoda keys list -a) 1uband \
   --chain-id $CHAIN_ID \
-  --keyring-backend test \
   --gas-prices 0.0025uband \
   -b sync \
   -y
@@ -429,7 +468,6 @@ Secondly, grant all reporters for the validator, so that oracle requests for val
 bandd tx oracle add-reporters $(yoda keys list -a) \
   --from $WALLET_NAME \
   --chain-id $CHAIN_ID \
-  --keyring-backend test \
   --gas-prices 0.0025uband \
   -b sync \
   -y
@@ -442,7 +480,6 @@ Next, feeder accounts must be create on BandChain by supplying some small amount
 ```bash=
 bandd tx bank multi-send $WALLET_NAME $(grogu keys list -a) 1uband \
   --chain-id $CHAIN_ID \
-  --keyring-backend test \
   --gas-prices 0.0025uband \
   --gas 400000 \
   -b sync \
@@ -455,7 +492,6 @@ Then, grant all feeders for the validator, so that submit prices transactions ca
 bandd tx feeds add-feeders $(grogu keys list -a) \
   --from $WALLET_NAME \
   --chain-id $CHAIN_ID \
-  --keyring-backend test \
   --gas-prices 0.0025uband \
   --gas 400000 \
   -b sync \
@@ -470,7 +506,6 @@ Finally, activate the validator to become an oracle provider
 bandd tx oracle activate \
   --from $WALLET_NAME \
   --chain-id $CHAIN_ID \
-  --keyring-backend test \
   --gas-prices 0.0025uband \
   -b sync \
   -y

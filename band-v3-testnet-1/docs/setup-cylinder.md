@@ -10,7 +10,7 @@ Firstly, configure Cylinder's basic configurations
 
 ```bash=
 cylinder config chain-id $CHAIN_ID
-cylinder config granter $(bandd keys show $WALLET_NAME -a --keyring-backend test)
+cylinder config granter $(bandd keys show $WALLET_NAME -a)
 cylinder config max-messages 20
 cylinder config broadcast-timeout "5m"
 cylinder config rpc-poll-interval "1s"
@@ -49,7 +49,6 @@ Lastly, grantees accounts must be create on BandChain by supplying some small am
 ```bash=
 bandd tx bank multi-send $WALLET_NAME $(cylinder keys list -a --home $HOME_PATH) 1uband \
   --chain-id $CHAIN_ID \
-  --keyring-backend test \
   --gas-prices 0.0025uband \
   -b sync \
   -y
@@ -61,7 +60,6 @@ Then, grant all grantees for the validator.
 bandd tx tss add-grantees $(cylinder keys list -a --home $HOME_PATH) \
   --from $WALLET_NAME \
   --chain-id $CHAIN_ID \
-  --keyring-backend test \
   --gas-prices 0.0025uband \
   --gas 1000000 \
   -b sync \

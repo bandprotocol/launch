@@ -14,7 +14,7 @@ authentication = "None"
 path = "/root/.bothan/data"
 
 [monitoring]
-endpoint = "https://bothan-monitoring-devnet-848616523317.asia-southeast1.run.app/"
+endpoint = "https://bothan-monitoring-v3-testnet.bandchain.org/"
 path = "/root/.bothan/keyring/broadcaster.info"
 enabled = true
 

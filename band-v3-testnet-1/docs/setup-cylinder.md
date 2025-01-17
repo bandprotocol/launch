@@ -2,22 +2,27 @@
 
 The Cylinder program is tailored for specific members participating in threshold signature scheme (TSS) message signing. It simplifies the signing process, enabling secure and efficient collaboration among group members.
 
-If you’re not a selected member yet, you can still run the Cylinder program in advance to be prepared.
+We recommend that validators planning to run Cylinder wait until the latest blocks are fully synced before proceeding.
 
 The document is written based on the assumption that the program runs on Ubuntu 24.04 LTS.
 
 Before beginning instructions, the following variables should be set to be used in further instructions. Please make sure that these variables are set every time when using the new shell session.
+
+## Prerequisite
+
+- [Joined as a testnet validator](https://github.com/bandprotocol/launch/blob/master/band-v3-testnet-1/README.md)
+- Selected as a TSS member
 
 ```bash
 # Chain ID of Band V3 Testnet #1
 export CHAIN_ID="band-v3-testnet-1"
 # Wallet name to be used as a granter account, please change this into your name (no whitespace).
 export WALLET_NAME=<YOUR_WALLET_NAME>
-# url for connecting to the target chain, e.g. tcp://localhost:26657
-export RPC_URL=<YOUR_NODE_RPC_URL>
 ```
 
 ## Step 1: Provide granter account to the system
+
+**note:** You can skip this step if you plan to use an existing wallet.
 
 Create a new account using the command below.
 
@@ -33,11 +38,11 @@ To verify that the new account has been added to the system, run `bandd keys sho
 
 ## Step 2: Configure general settings
 
-Run the following command to set the configuration of the cylinder program and add signer account to the program.
+Firstly, configure Cylinder's basic configurations
 
 ```bash
 cylinder config chain-id $CHAIN_ID
-cylinder config node $RPC_URL
+cylinder config node http://localhost:26657
 cylinder config granter $(bandd keys show $WALLET_NAME -a)
 cylinder config gas-prices "0uband"
 cylinder config max-messages 20
@@ -49,32 +54,16 @@ cylinder config gas-adjust-start 1.6
 cylinder config gas-adjust-step 0.2
 cylinder config random-secret "$(openssl rand -hex 32)"
 cylinder config checking-de-interval "1m"
+```
 
+Secondly, add multiple signer accounts.
+
+```bash
 cylinder keys add signer1
 cylinder keys add signer2
 cylinder keys add signer3
 cylinder keys add signer4
-```
-
-below is the meaning of the configuration of the system
-
-```go
-type Config struct {
-	ChainID          	string        		// ChainID of the target chain
-	NodeURI          	string        		// Remote RPC URI of BandChain node to connect to
-	Granter          	string        		// The granter address
-	GasPrices        	string        		// Gas prices of the transaction
-	LogLevel         	string        		// Log level of the logger
-	MaxMessages      	uint64        		// The maximum number of messages in a transaction
-	BroadcastTimeout 	time.Duration 		// The time that cylinder will wait for tx commit
-	RPCPollInterval  	time.Duration 		// The duration of rpc poll interval
-	MaxTry           	uint64        		// The maximum number of tries to submit a report transaction
-	MinDE            	uint64        		// The minimum number of DE
-	GasAdjustStart   	float64       		// The start value of gas adjustment
-	GasAdjustStep    	float64       		// The increment step of gas adjustment
-	RandomSecret     	tss.Scalar    		// The secret value that is used for random D,E
-	CheckingDEInterval 	time.Duration  		// The interval for updating DE
-}
+cylinder keys add signer5
 ```
 
 To check that if the signer account is added into the program, run the following command

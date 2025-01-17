@@ -24,14 +24,14 @@ export RPC_URL=<YOUR_NODE_RPC_URL>
 Create a new account using the command below.
 
 ```sh
-bandd keys add $WALLET_NAME --keyring-backend test
+bandd keys add $WALLET_NAME
 ```
 
 If you choose to use an existing account, add the `--recover` flag to the command mentioned above.
 
 whether a granter account is created or recovered, please ensure that the account has sufficient tokens to cover transaction fees.
 
-To verify that the new account has been added to the system, run `bandd keys show $WALLET_NAME -a --keyring-backend test` to display the wallet address associated with the account.
+To verify that the new account has been added to the system, run `bandd keys show $WALLET_NAME -a` to display the wallet address associated with the account.
 
 ## Step 2: Configure general settings
 
@@ -40,7 +40,7 @@ Run the following command to set the configuration of the cylinder program and a
 ```sh
 cylinder config chain-id $CHAIN_ID --home $CYLINDER_HOME_PATH
 cylinder config node $RPC_URL --home $CYLINDER_HOME_PATH
-cylinder config granter $(bandd keys show $WALLET_NAME -a --keyring-backend test) --home $CYLINDER_HOME_PATH
+cylinder config granter $(bandd keys show $WALLET_NAME -a) --home $CYLINDER_HOME_PATH
 cylinder config gas-prices "0uband" --home $CYLINDER_HOME_PATH
 cylinder config max-messages 20 --home $CYLINDER_HOME_PATH
 cylinder config broadcast-timeout "5m" --home $CYLINDER_HOME_PATH
@@ -87,9 +87,9 @@ To check that if the signer account is added into the program, run the following
 Run the following commands to send 1 BAND to the predefined signer accounts and designate them as grantees of the granter account.
 
 ```sh
-bandd tx multi-send 1000000uband $(cylinder keys list -a --home $CYLINDER_HOME_PATH) --gas-prices 0.0025uband --keyring-backend test --chain-id $CHAIN_ID --from $WALLET_NAME -b sync -y --node $RPC_URL
+bandd tx multi-send 1000000uband $(cylinder keys list -a --home $CYLINDER_HOME_PATH) --gas-prices 0.0025uband --chain-id $CHAIN_ID --from $WALLET_NAME -b sync -y --node $RPC_URL
 
-bandd tx tss add-grantees $(cylinder keys list -a --home $CYLINDER_HOME_PATH) --gas-prices 0.0025uband --keyring-backend test --chain-id $CHAIN_ID --gas 350000 --from $WALLET_NAME -b sync -y --node $RPC_URL
+bandd tx tss add-grantees $(cylinder keys list -a --home $CYLINDER_HOME_PATH) --gas-prices 0.0025uband --chain-id $CHAIN_ID --gas 350000 --from $WALLET_NAME -b sync -y --node $RPC_URL
 ```
 
 ## Step 4: Register Cylinder service

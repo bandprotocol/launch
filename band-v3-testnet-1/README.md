@@ -403,7 +403,6 @@ COMMISSION_RATE="0.1"
 COMMISSION_MAX_RATE="0.2"
 COMMISSION_MAX_CHANGE_RATE="0.01"
 MIN_SELF_DELEGATION="1"
-GAS_PRICES="0.0025uband"
 PUBKEY=$(bandd tendermint show-validator)
 ```
 
@@ -442,7 +441,7 @@ Then, run the following command to create the validator using the `validator.jso
 ```bash
 bandd tx staking create-validator $HOME/validator.json \
     --from $WALLET_NAME \
-    --gas-prices $GAS_PRICES \
+    --gas-prices 0.0025uband \
     --chain-id $CHAIN_ID \
     -y
 ```

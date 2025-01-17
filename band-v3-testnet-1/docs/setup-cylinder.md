@@ -2,44 +2,27 @@
 
 The Cylinder program is tailored for specific members participating in threshold signature scheme (TSS) message signing. It simplifies the signing process, enabling secure and efficient collaboration among group members.
 
-We recommend that validators planning to run Cylinder wait until the latest blocks are fully synced before proceeding.
-
 The document is written based on the assumption that the program runs on Ubuntu 24.04 LTS.
 
-## Prerequisite
+## Prerequisites
 
-- [Joined as a testnet validator](https://github.com/bandprotocol/launch/blob/master/band-v3-testnet-1/README.md)
-- Selected as a TSS member
+- **Finished** [Joined as a testnet validator](https://github.com/bandprotocol/launch/blob/master/band-v3-testnet-1/README.md)
+- **Selected as a TSS member**
+- **Latest blocks are fully synced**
 
 ## Setup Variables
-
 
 Before beginning instructions, the following variables should be set to be used in further instructions. Please make sure that these variables are set every time when using the new shell session.
 
 ```bash
 # Chain ID of Band V3 Testnet #1
 export CHAIN_ID="band-v3-testnet-1"
-# Wallet name to be used as a granter account, please change this into your name (no whitespace).
+# Wallet name that used as your validator's account.
 export WALLET_NAME=<YOUR_WALLET_NAME>
+source $HOME/.profile
 ```
 
-## Step 1: Provide granter account to the system
-
-**note:** We strongly recommend using the same account that you use to join as a validator. If you already have an existing account, you can skip this step entirely.
-
-Create a new account using the command below.
-
-```bash
-bandd keys add $WALLET_NAME
-```
-
-If you choose to use an existing account, add the `--recover` flag to the command mentioned above.
-
-whether a granter account is created or recovered, please ensure that the account has sufficient tokens to cover transaction fees.
-
-To verify that the new account has been added to the system, run `bandd keys show $WALLET_NAME -a` to display the wallet address associated with the account.
-
-## Step 2: Configure general settings
+## Step 1: Configure general settings
 
 Firstly, configure Cylinder's basic configurations
 
@@ -72,7 +55,7 @@ cylinder keys add signer5
 To check that if the signer account is added into the program, run the following command
 `cylinder keys list`.
 
-## Step 3: Set grantee and send tokens to the signer account.
+## Step 2: Set grantee and send tokens to the signer account.
 
 Firstly, signer accounts must be create on Bandchain by supplying some small amount of BAND tokens.
 
@@ -90,7 +73,7 @@ Secondly, designate all signer account as grantees of the granter account.
 bandd tx tss add-grantees $(cylinder keys list -a) --gas-prices 0.0025uband --chain-id $CHAIN_ID --gas 800000 --from $WALLET_NAME -b sync -y
 ```
 
-## Step 4: Register Cylinder service
+## Step 3: Register Cylinder service
 
 We also do recommend to use `systemctl` the same as `bandd`.
 
@@ -121,7 +104,7 @@ To register `cylinder` services, run the following commands.
 sudo systemctl enable cylinder
 ```
 
-## Step 5: Start Cylinder
+## Step 4: Start Cylinder
 
 ```bash
 # Start cylinder daemon

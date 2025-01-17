@@ -19,6 +19,7 @@ Before beginning instructions, the following variables should be set to be used 
 export CHAIN_ID="band-v3-testnet-1"
 # Wallet name that used as your validator's account.
 export WALLET_NAME=<YOUR_WALLET_NAME>
+# Reload from the .profile file
 source $HOME/.profile
 ```
 

@@ -6,12 +6,15 @@ We recommend that validators planning to run Cylinder wait until the latest bloc
 
 The document is written based on the assumption that the program runs on Ubuntu 24.04 LTS.
 
-Before beginning instructions, the following variables should be set to be used in further instructions. Please make sure that these variables are set every time when using the new shell session.
-
 ## Prerequisite
 
 - [Joined as a testnet validator](https://github.com/bandprotocol/launch/blob/master/band-v3-testnet-1/README.md)
 - Selected as a TSS member
+
+## Setup Variables
+
+
+Before beginning instructions, the following variables should be set to be used in further instructions. Please make sure that these variables are set every time when using the new shell session.
 
 ```bash
 # Chain ID of Band V3 Testnet #1
@@ -67,18 +70,18 @@ cylinder keys add signer5
 ```
 
 To check that if the signer account is added into the program, run the following command
-`cylinder keys list`. The configuration is updated in the `$CYLINDER_HOME_PATH/config.yaml`
+`cylinder keys list`.
 
 ## Step 3: Set grantee and send tokens to the signer account.
 
 Run the following commands to send 1 BAND to the predefined signer accounts and designate them as grantees of the granter account.
 
 ```bash
-bandd tx bank multi-send 1000000uband $(cylinder keys list -a) --gas-prices 0.0025uband --chain-id $CHAIN_ID --from $WALLET_NAME -b sync -y --node $RPC_URL
+bandd tx bank multi-send 1000000uband $(cylinder keys list -a) --gas-prices 0.0025uband --chain-id $CHAIN_ID --from $WALLET_NAME -b sync -y
 ```
 
 ```bash
-bandd tx tss add-grantees $(cylinder keys list -a) --gas-prices 0.0025uband --chain-id $CHAIN_ID --gas 350000 --from $WALLET_NAME -b sync -y --node $RPC_URL
+bandd tx tss add-grantees $(cylinder keys list -a) --gas-prices 0.0025uband --chain-id $CHAIN_ID --gas 350000 --from $WALLET_NAME -b sync -y
 ```
 
 ## Step 4: Register Cylinder service

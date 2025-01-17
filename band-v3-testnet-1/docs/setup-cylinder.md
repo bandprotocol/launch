@@ -25,7 +25,7 @@ export WALLET_NAME=<YOUR_WALLET_NAME>
 
 ## Step 1: Provide granter account to the system
 
-**note:** You can skip this step if you plan to use an existing wallet.
+**note:** We strongly recommend using the same account that you use to join as a validator. If you already have an existing account, you can skip this step entirely.
 
 Create a new account using the command below.
 
@@ -77,7 +77,11 @@ To check that if the signer account is added into the program, run the following
 Run the following commands to send 1 BAND to the predefined signer accounts and designate them as grantees of the granter account.
 
 ```bash
-bandd tx bank multi-send 1000000uband $(cylinder keys list -a) --gas-prices 0.0025uband --chain-id $CHAIN_ID --from $WALLET_NAME -b sync -y
+bandd tx bank multi-send $WALLET_NAME $(cylinder keys list -a) 1uband \
+	--gas-prices 0.0025uband \
+	--chain-id $CHAIN_ID \
+	-b sync \
+	-y
 ```
 
 ```bash

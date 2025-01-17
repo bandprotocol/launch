@@ -74,7 +74,7 @@ To check that if the signer account is added into the program, run the following
 
 ## Step 3: Set grantee and send tokens to the signer account.
 
-Run the following commands to supplying some small amount of BAND tokens to the predefined signer accounts and designate them as grantees of the granter account.
+Firstly, signer accounts must be create on Bandchain by supplying some small amount of BAND tokens.
 
 ```bash
 bandd tx bank multi-send $WALLET_NAME $(cylinder keys list -a) 1uband \
@@ -84,8 +84,10 @@ bandd tx bank multi-send $WALLET_NAME $(cylinder keys list -a) 1uband \
 	-y
 ```
 
+Secondly, designate all signer account as grantees of the granter account.
+
 ```bash
-bandd tx tss add-grantees $(cylinder keys list -a) --gas-prices 0.0025uband --chain-id $CHAIN_ID --gas 350000 --from $WALLET_NAME -b sync -y
+bandd tx tss add-grantees $(cylinder keys list -a) --gas-prices 0.0025uband --chain-id $CHAIN_ID --gas 800000 --from $WALLET_NAME -b sync -y
 ```
 
 ## Step 4: Register Cylinder service

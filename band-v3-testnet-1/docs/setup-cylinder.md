@@ -74,7 +74,7 @@ To check that if the signer account is added into the program, run the following
 
 ## Step 3: Set grantee and send tokens to the signer account.
 
-Run the following commands to send 1 BAND to the predefined signer accounts and designate them as grantees of the granter account.
+Run the following commands to supplying some small amount of BAND tokens to the predefined signer accounts and designate them as grantees of the granter account.
 
 ```bash
 bandd tx bank multi-send $WALLET_NAME $(cylinder keys list -a) 1uband \

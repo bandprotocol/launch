@@ -24,16 +24,20 @@ export WALLET_NAME=<YOUR_WALLET_NAME>
 # Name of your validator node, please change this into your name.
 export MONIKER=<YOUR_MONIKER>
 # Seed and persistent peers for P2P communication
-<!-- TODO: add seeds -->
-export SEEDS=
+export SEEDS="cf91ef30a9877d7cf0e654d5f75f8d68ff6ee4e7@34.2.133.3:26656,cbe055146a4607c3db5909bfa20e9e0c5ea95f90@35.212.1.35:26656"
 # URL of genesis file for Band V3 Testnet #1
-<!-- TODO: add genesis url -->
-export GENESIS_FILE_URL=
+export GENESIS_FILE_URL=https://raw.githubusercontent.com/bandprotocol/launch/master/band-v3-testnet-1/genesis.json
 # URL of config file for Bothan
-<!-- TODO: add bothan config url -->
-export BOTHAN_CONFIG_FILE_URL=
+export BOTHAN_CONFIG_FILE_URL=https://raw.githubusercontent.com/bandprotocol/launch/master/band-v3-testnet-1/bothan-config.toml
 # Faucet endpoint
 export FAUCET_URL=https://band-v3-testnet.bandchain.org/faucet
+```
+
+**noted:** for those in the US region please use the following `BOTHAN_CONFIG_FILE_URL`
+
+```bash
+# URL of config file for Bothan
+export BOTHAN_CONFIG_FILE_URL=https://raw.githubusercontent.com/bandprotocol/launch/master/band-v3-testnet-1/bothan-config-us.toml
 ```
 
 ### Step 1.1: Install Prerequisites
@@ -290,8 +294,7 @@ To retrieve your public key, run this command:
 sudo docker exec -it $CONTAINER_ID /bin/sh -c "bothan key display"
 ```
 
-After retrieving your public key, submit it via (this form). **Do not share your private key.**
-<!-- TODO: add form -->
+After retrieving your public key, submit it via [this form](https://forms.gle/agy1tLguwrtbKueFA). **Do not share your private key.**
 
 ## Step 5: Setup Grogu
 
@@ -374,8 +377,7 @@ After a service has been started, logs can be queried by running `journalctl -u 
 
 ### Step 6.1: Wait for latest blocks to be synced
 
-**This is an important step.** We should wait for newly started Bandchain node to sync their blocks until the latest block is reached. The latest block can be checked on [this Block Explorer].
-<!-- TODO: add block explorer -->
+**This is an important step.** We should wait for newly started Bandchain node to sync their blocks until the latest block is reached. The latest block can be checked on [this Block Explorer](https://band-v3-testnet.cosmoscan.io/blocks).
 
 ## Step 7: Become a Validator
 
@@ -446,8 +448,7 @@ bandd tx staking create-validator $HOME/validator.json \
     -y
 ```
 
-After became a validator, the validator node will be shown on Block Explorer [here].
-<!-- TODO: add block explorer -->
+After became a validator, the validator node will be shown on Block Explorer [here](https://band-v3-testnet.cosmoscan.io/validators).
 
 ### Step 7.3: Register Reporters
 

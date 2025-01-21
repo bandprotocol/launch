@@ -478,6 +478,7 @@ Then, run the following command to create the validator using the `validator.jso
 bandd tx staking create-validator $HOME/validator.json \
     --from $WALLET_NAME \
     --gas-prices 0.0025uband \
+    --gas 300000 \
     --chain-id $CHAIN_ID \
     -y
 ```

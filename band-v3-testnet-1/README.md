@@ -1,7 +1,5 @@
 # Band V3 Testnet #1: How to Join as a Validator
 
-**Note: This documentation is not final and is intended for preparation purposes. It may be subject to change after the testnet launch.**
-
 This document describes methods on how to join as a validator in Band V3 Testnet #1 without using State Sync. If you want to join using State Sync please follow this document [How to Join as a Validator using State Sync](https://github.com/bandprotocol/launch/blob/master/band-v3-testnet-1/docs/how-to-join-as-a-validator-using-statesync.md)
 
 ## Hardware Requirements

@@ -407,7 +407,7 @@ sudo systemctl start grogu
 
 After a service has been started, logs can be queried by running `journalctl -u <SERVICE_NAME>.service -f` command. Once verified, you can stop tailing the log by typing `Control-C`.
 
-### Step 6.1: Wait for latest blocks to be synced
+### Step 6.1: Wait for the latest blocks to be synced
 
 **This is an important step.** We should wait for newly started Bandchain node to sync their blocks until the latest block is reached. The latest block can be checked on [this Block Explorer](https://band-v3-testnet.cosmoscan.io/blocks).
 

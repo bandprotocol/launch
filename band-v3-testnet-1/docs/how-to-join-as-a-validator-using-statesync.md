@@ -31,7 +31,7 @@ export BOTHAN_CONFIG_FILE_URL=https://raw.githubusercontent.com/bandprotocol/lau
 export FAUCET_URL=https://band-v3-testnet.bandchain.org/faucet
 ```
 
-**noted:** for those in the US region please use the following `BOTHAN_CONFIG_FILE_URL`
+**Noted:** for those in the US region please use the following `BOTHAN_CONFIG_FILE_URL`
 
 ```bash
 # URL of config file for Bothan
@@ -440,7 +440,7 @@ MIN_SELF_DELEGATION="1"
 PUBKEY=$(bandd tendermint show-validator)
 ```
 
-**note:** This command is optional. If you don't want to provide these info, you don't have to run this command.
+**Noted:** This command is optional. If you don't want to provide these info, you don't have to run this command.
 
 ```bash
 # Optional fields

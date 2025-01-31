@@ -86,8 +86,8 @@ cylinder import groups <PATH_TO_YOUR_KEYS_FILE>
 
 ```bash
 bandd tx tss reset-de --from $WALLET_NAME \
-    --gas-prices 0.0025uband \
-	--gas 600000
+	--gas-prices 0.0025uband \
+	--gas 600000 \
 	--chain-id $CHAIN_ID \
 	-b sync \
 	-y
@@ -114,7 +114,7 @@ If your status `is_active` is `false` (or not shown in the output, which also me
 
 ```bash
 bandd tx bandtss activate --from $WALLET_NAME \
-    --gas-prices 0.0025uband \
+	--gas-prices 0.0025uband \
 	--chain-id $CHAIN_ID \
 	-b sync \
 	-y

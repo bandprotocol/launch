@@ -58,10 +58,10 @@ If your status `is_active` is `false` (or not shown in the output, which also me
 
 ```bash
 bandd tx bandtss activate --from $WALLET_NAME \
-    --gas-prices 0.0025uband \
-	--chain-id $CHAIN_ID \
-	-b sync \
-	-y
+  --gas-prices 0.0025uband \
+  --chain-id $CHAIN_ID \
+  -b sync \
+  -y
 ```
 
 ## Import Cylinder groups' keys
@@ -86,11 +86,11 @@ cylinder import groups <PATH_TO_YOUR_KEYS_FILE>
 
 ```bash
 bandd tx tss reset-de --from $WALLET_NAME \
-	--gas-prices 0.0025uband \
-	--gas 600000 \
-	--chain-id $CHAIN_ID \
-	-b sync \
-	-y
+  --gas-prices 0.0025uband \
+  --gas 600000 \
+  --chain-id $CHAIN_ID \
+  -b sync \
+  -y
 ```
 
 ### Step 4: Start Cylinder
@@ -114,8 +114,8 @@ If your status `is_active` is `false` (or not shown in the output, which also me
 
 ```bash
 bandd tx bandtss activate --from $WALLET_NAME \
-	--gas-prices 0.0025uband \
-	--chain-id $CHAIN_ID \
-	-b sync \
-	-y
+  --gas-prices 0.0025uband \
+  --chain-id $CHAIN_ID \
+  -b sync \
+  -y
 ```

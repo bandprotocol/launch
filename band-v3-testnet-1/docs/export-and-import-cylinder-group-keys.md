@@ -2,8 +2,9 @@
 
 Once you have joined the TSS group, you can export the group's keys for future import. In case you set up a new node, these exported keys can be imported to ensure seamless participation in the TSS group.
 
-Note 1: Always export and back up your keys each time you join a new group to prevent data loss.
-Note 2: Do not migrate your Cylinder while you are in the group creation process, as this may cause the group creation to fail.
+**Note 1**: Always export and back up your keys each time you join a new group to prevent data loss.
+
+**Note 2**: Do not migrate your Cylinder while you are in the group creation process, as this may cause the group creation to fail.
 
 ## Setup Variables
 
@@ -27,7 +28,6 @@ If your cylinder is running, stop it before exporting keys
 ```bash
 sudo systemctl stop cylinder
 ```
-
 
 ### Step 2: Export keys
 

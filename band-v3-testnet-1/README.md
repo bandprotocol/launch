@@ -110,9 +110,14 @@ sed -E -i \
   "s/^minimum-gas-prices *=.*/minimum-gas-prices = \"0.0025uband\"/" \
   $HOME/.band/config/app.toml
 
-# Set timeout commit to 0.7 second
+# Set timeout propose to 1.5 second
 sed -E -i \
-  "s/timeout_commit = \".*\"/timeout_commit = \"700ms\"/" \
+  "s/timeout_propose = \".*\"/timeout_propose = \"1.5s\"/" \
+  $HOME/.band/config/config.toml
+
+# Set timeout commit to 0.5 second
+sed -E -i \
+  "s/timeout_commit = \".*\"/timeout_commit = \"500ms\"/" \
   $HOME/.band/config/config.toml
 ```
 

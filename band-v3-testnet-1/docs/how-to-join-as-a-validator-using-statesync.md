@@ -31,7 +31,7 @@ export BOTHAN_CONFIG_FILE_URL=https://raw.githubusercontent.com/bandprotocol/lau
 export FAUCET_URL=https://band-v3-testnet.bandchain.org/faucet
 ```
 
-**Noted:** for those in the US region please use the following `BOTHAN_CONFIG_FILE_URL`
+**Note:** for those in the US region please use the following `BOTHAN_CONFIG_FILE_URL`
 
 ```bash
 # URL of config file for Bothan
@@ -226,7 +226,7 @@ There is an update in the executor configuration. You can **set up a new executo
 - [AWS Lambda Function Setup](https://github.com/bandprotocol/data-source-runtime/wiki/Setup-Yoda-Executor-Using-AWS-Lambda)
 - [Google Cloud Function Setup](https://github.com/bandprotocol/data-source-runtime/wiki/Setup-Yoda-Executor-Using-Google-Cloud-Function)
 
-**Noted** You can use the old executor on laozi-testnet6 (no change from that version)
+**Note** You can use the old executor on laozi-testnet6 (no change from that version)
 
 Then, check Yoda version that we have compiled. It should be `v3.0.0-rc1`.
 
@@ -445,7 +445,7 @@ MIN_SELF_DELEGATION="1"
 PUBKEY=$(bandd tendermint show-validator)
 ```
 
-**Noted:** This command is optional. If you don't want to provide these info, you don't have to run this command.
+**Note:** This command is optional. If you don't want to provide these info, you don't have to run this command.
 
 ```bash
 # Optional fields

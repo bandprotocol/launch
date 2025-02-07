@@ -145,7 +145,7 @@ sed -E -i \
 ```bash
 # Get trust height and trust hash
 LATEST_HEIGHT=$(curl -s https://rpc.band-v3-testnet.bandchain.org/block | jq -r .result.block.header.height);
-TRUST_HEIGHT=$(($LATEST_HEIGHT-10000))
+TRUST_HEIGHT=$(($LATEST_HEIGHT-30000))
 TRUST_HASH=$(curl -s "https://rpc.band-v3-testnet.bandchain.org/block?height=$TRUST_HEIGHT" | jq -r .result.block_id.hash)
 
 # show trust height and trust hash

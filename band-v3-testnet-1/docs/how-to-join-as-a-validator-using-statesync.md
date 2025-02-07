@@ -97,27 +97,47 @@ wget $GENESIS_FILE_URL -O $HOME/.band/config/genesis.json
 bandd keys add $WALLET_NAME
 ```
 
-### Step 1.4: Setup seeds and minimum gas price
+### Step 1.4: Setup node configuration
 
 ```bash
-# Add seeds to config.toml
-sed -E -i \
-  "s/seeds = \".*\"/seeds = \"${SEEDS}\"/" \
-  $HOME/.band/config/config.toml
-  
 # Add minimum gas price
 sed -E -i \
   "s/^minimum-gas-prices *=.*/minimum-gas-prices = \"0.0025uband\"/" \
   $HOME/.band/config/app.toml
 
-# Set timeout propose to 1.5 second
+# Add seeds to config.toml
 sed -E -i \
-  "s/timeout_propose = \".*\"/timeout_propose = \"1.5s\"/" \
+  "s/seeds = \".*\"/seeds = \"${SEEDS}\"/" \
   $HOME/.band/config/config.toml
 
-# Set timeout commit to 0.5 second
+# Set timeout propose
+sed -E -i \
+  "s/timeout_propose = \".*\"/timeout_propose = \"1s\"/" \
+  $HOME/.band/config/config.toml
+
+# Set timeout commit
 sed -E -i \
   "s/timeout_commit = \".*\"/timeout_commit = \"500ms\"/" \
+  $HOME/.band/config/config.toml
+
+# Set peer_gossip_sleep_duration
+sed -E -i \
+  "s/peer_gossip_sleep_duration = \".*\"/peer_gossip_sleep_duration = \"10ms\"/" \
+  $HOME/.band/config/config.toml
+
+# Set flush_throttle_timeout
+sed -E -i \
+  "s/flush_throttle_timeout = \".*\"/flush_throttle_timeout = \"10ms\"/" \
+  $HOME/.band/config/config.toml
+
+# Set number of inbound peers
+sed -E -i \
+  "s/max_num_inbound_peers = .*/max_num_inbound_peers = 40/" \
+  $HOME/.band/config/config.toml
+
+# Set number of outbound peers
+sed -E -i \
+  "s/max_num_outbound_peers = .*/max_num_outbound_peers = 40/" \
   $HOME/.band/config/config.toml
 ```
 

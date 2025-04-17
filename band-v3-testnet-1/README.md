@@ -22,7 +22,7 @@ export WALLET_NAME=<YOUR_WALLET_NAME>
 # Name of your validator node, please change this into your name.
 export MONIKER=<YOUR_MONIKER>
 # Seed and persistent peers for P2P communication
-export SEEDS="62eb486c7163b173ad9948579555872b809f09cd@37.27.244.210:26656,fda81adfb9dce7cf74179a8caf1e116cf9284318@65.108.45.110:26656"
+export SEEDS="62eb486c7163b173ad9948579555872b809f09cd@37.27.244.210:26656,c22824546ad9daeda7c513bf324a6bc01306c930@37.27.30.170:26656"
 # URL of genesis file for Band V3 Testnet #1
 export GENESIS_FILE_URL=https://raw.githubusercontent.com/bandprotocol/launch/master/band-v3-testnet-1/genesis.json
 # URL of config file for Bothan

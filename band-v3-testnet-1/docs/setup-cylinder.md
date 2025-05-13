@@ -32,7 +32,7 @@ cylinder config chain-id $CHAIN_ID
 cylinder config node http://localhost:26657
 cylinder config granter $(bandd keys show $WALLET_NAME -a)
 cylinder config gas-prices "0uband"
-cylinder config max-messages 20
+cylinder config max-messages 10
 cylinder config broadcast-timeout "5m"
 cylinder config rpc-poll-interval "1s"
 cylinder config max-try 5

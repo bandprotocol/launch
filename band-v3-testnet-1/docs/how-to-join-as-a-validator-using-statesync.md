@@ -200,8 +200,8 @@ mkdir -p $HOME/.band/cosmovisor/upgrades
 cp $HOME/go/bin/bandd $HOME/.band/cosmovisor/genesis/bin
 
 # Setup folder and provide bandd binary for Cosmovisor Upgrades
-mkdir -p $HOME/.band/cosmovisor/upgrades/v3_rc3/bin
-cp $HOME/go/bin/bandd $DAEMON_HOME/cosmovisor/upgrades/v3_rc3/bin
+mkdir -p $HOME/.band/cosmovisor/upgrades/v3_rc4/bin
+cp $HOME/go/bin/bandd $DAEMON_HOME/cosmovisor/upgrades/v3_rc4/bin
 ```
 
 ### Step 2.3: Update Bandchain service

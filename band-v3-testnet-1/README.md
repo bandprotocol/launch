@@ -137,7 +137,7 @@ sed -E -i \
 
 # Set number of outbound peers
 sed -E -i \
-  "s/max_num_outbound_peers = .*/max_num_outbound_peers = 40/" \
+  "s/max_num_outbound_peers = .*/max_num_outbound_peers = 30/" \
   $HOME/.band/config/config.toml
 ```
 
@@ -330,7 +330,6 @@ Firstly, configure Grogu's basic configurations
 ```bash
 grogu config chain-id $CHAIN_ID
 grogu config validator $(bandd keys show $WALLET_NAME -a --bech val)
-grogu config broadcast-timeout "5m"
 grogu config rpc-poll-interval "1s"
 grogu config max-try 5
 grogu config nodes http://localhost:26657

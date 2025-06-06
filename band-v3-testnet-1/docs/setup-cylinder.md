@@ -51,6 +51,11 @@ cylinder keys add signer2
 cylinder keys add signer3
 cylinder keys add signer4
 cylinder keys add signer5
+cylinder keys add signer6
+cylinder keys add signer7
+cylinder keys add signer8
+cylinder keys add signer9
+cylinder keys add signer10
 ```
 
 To check that if the signer account is added into the program, run the following command
@@ -65,13 +70,14 @@ bandd tx bank multi-send $WALLET_NAME $(cylinder keys list -a) 1uband \
 	--gas-prices 0.0025uband \
 	--chain-id $CHAIN_ID \
 	-b sync \
+    --gas 500000 \
 	-y
 ```
 
 Secondly, designate all signer account as grantees of the granter account.
 
 ```bash
-bandd tx tss add-grantees $(cylinder keys list -a) --gas-prices 0.0025uband --chain-id $CHAIN_ID --gas 800000 --from $WALLET_NAME -b sync -y
+bandd tx tss add-grantees $(cylinder keys list -a) --gas-prices 0.0025uband --chain-id $CHAIN_ID --gas 2000000 --from $WALLET_NAME -b sync -y
 ```
 
 ## Step 3: Register Cylinder service

@@ -73,10 +73,10 @@ Install [Docker for Ubuntu](https://docs.docker.com/engine/install/ubuntu/)
 ### Step 1.2: Clone & Install Band V3 binary
 
 ```bash
-# Clone Band binary version v3.0.0-rc4
+# Clone Band binary version v3.0.0
 git clone https://github.com/bandprotocol/chain
 cd chain
-git checkout v3.0.0-rc4
+git checkout v3.0.0
 
 # Install binaries to $GOPATH/bin
 make install
@@ -252,11 +252,11 @@ There is an update in the executor configuration. You can **set up a new executo
 
 **Note** You can use the old executor on laozi-testnet6 (no change from that version)
 
-Then, check Yoda version that we have compiled. It should be `v3.0.0-rc4`.
+Then, check Yoda version that we have compiled. It should be `v3.0.0`.
 
 ```bash
 yoda version
-# v3.0.0-rc4
+# v3.0.0
 ```
 
 ### Step 3.2: Configure Yoda
@@ -333,7 +333,7 @@ mkdir -p $HOME/.bothan && wget -O $HOME/.bothan/config.toml $BOTHAN_CONFIG_FILE_
 ### Step 4.2: Run Bothan docker
 
 ```bash
-sudo docker pull bandprotocol/bothan-api:v0.0.1-beta.1
+sudo docker pull bandprotocol/bothan-api:v0.0.1-beta.3
 CONTAINER_ID=$(sudo docker run --restart always --log-opt max-size=50m --log-opt max-file=5 -d --name bothan -v "$HOME/.bothan:/root/.bothan" -p 50051:50051 bandprotocol/bothan-api:v0.0.1-beta.1)
 ```
 

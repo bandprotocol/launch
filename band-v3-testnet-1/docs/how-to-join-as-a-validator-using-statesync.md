@@ -73,10 +73,10 @@ Install [Docker for Ubuntu](https://docs.docker.com/engine/install/ubuntu/)
 ### Step 1.2: Clone & Install Band V3 binary
 
 ```bash
-# Clone Band binary version v3.0.0
+# Clone Band binary version v3.0.1-rc1
 git clone https://github.com/bandprotocol/chain
 cd chain
-git checkout v3.0.0
+git checkout v3.0.1-rc1
 
 # Install binaries to $GOPATH/bin
 make install
@@ -200,8 +200,8 @@ mkdir -p $HOME/.band/cosmovisor/upgrades
 cp $HOME/go/bin/bandd $HOME/.band/cosmovisor/genesis/bin
 
 # Setup folder and provide bandd binary for Cosmovisor Upgrades
-mkdir -p $HOME/.band/cosmovisor/upgrades/v3_rc4/bin
-cp $HOME/go/bin/bandd $DAEMON_HOME/cosmovisor/upgrades/v3_rc4/bin
+mkdir -p $HOME/.band/cosmovisor/upgrades/v3_0_1_rc1_testnet/bin
+cp $HOME/go/bin/bandd $DAEMON_HOME/cosmovisor/upgrades/v3_0_1_rc1_testnet/bin
 ```
 
 ### Step 2.3: Update Bandchain service
@@ -252,11 +252,11 @@ There is an update in the executor configuration. You can **set up a new executo
 
 **Note** You can use the old executor on laozi-testnet6 (no change from that version)
 
-Then, check Yoda version that we have compiled. It should be `v3.0.0`.
+Then, check Yoda version that we have compiled. It should be `v3.0.1-rc1`.
 
 ```bash
 yoda version
-# v3.0.0
+# v3.0.1-rc1
 ```
 
 ### Step 3.2: Configure Yoda

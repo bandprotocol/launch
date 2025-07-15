@@ -3,7 +3,7 @@ Your node needs to know how to find peers.
 You'll need to add either seeds (suggested) or persistent peers from the lists below to `$HOME/.band/config/config.toml`.
 ## Seeds
 - Band Protocol  
-`8d42bdcb6cced03e0b67fa3957e4e9c8fd89015a@34.87.86.195:26656`  
+`2ace5785ad45be3d49eabd937892fab097a3515e@49.12.222.89:26656`  
 `12879758fb38f5f80e05022f1102aecebcb56bb0@37.27.249.86:26656`  
 - Active Nodes
 `2c884e60a0944958a2a9389f07f2f66dcfc3add0@seeds-bandprotocol.activenodes.io:36656`  

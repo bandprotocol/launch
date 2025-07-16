@@ -9,9 +9,9 @@ You'll need to add either seeds (suggested) or persistent peers from the lists b
 `2c884e60a0944958a2a9389f07f2f66dcfc3add0@seeds-bandprotocol.activenodes.io:36656`  
 
 ## Peers
-- Band Protocol (Provided snapshot for state sync every 20k blocks) 
-`98823087b61d442a4ab86998709c77b2e517ee78@35.240.152.216:26656`  
-`3ea84babead3d6bc488810a0f2cf0744cf5c68fe@34.86.22.251:26656`  
+- Band Protocol (Provided snapshot for state sync every 50k blocks)
+`a85fa8fe115824c4a2e368df665bc2f00fbdba95@65.21.49.252:26656`
+`027beb57e5eb167c238461da5d408cbce3d599eb@91.99.222.87:26656`
 - WeStaking
 `d047cfabdfd5e244af530d6d2101d07c45ff7424@165.22.167.234:41656`  
 - SolidOne

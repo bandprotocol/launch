@@ -46,6 +46,14 @@ url = "wss://ws.kraken.com/v2"
 [manager.crypto.source.okx]
 url = "wss://ws.okx.com:8443/ws/v5/public"
 
+[manager.crypto.source.band_kiwi]
+url = "https://kiwi.bandchain.org"
+update_interval = "1m"
+
+[manager.crypto.source.band_macaw]
+url = "https://macaw.bandchain.org"
+update_interval = "1m"
+
 [telemetry]
 enabled = false
 addr = "0.0.0.0:4318"

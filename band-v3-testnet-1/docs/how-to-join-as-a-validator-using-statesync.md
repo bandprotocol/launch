@@ -333,8 +333,8 @@ mkdir -p $HOME/.bothan && wget -O $HOME/.bothan/config.toml $BOTHAN_CONFIG_FILE_
 ### Step 4.2: Run Bothan docker
 
 ```bash
-sudo docker pull bandprotocol/bothan-api:v0.0.1-beta.3
-CONTAINER_ID=$(sudo docker run --restart always --log-opt max-size=50m --log-opt max-file=5 -d --name bothan -v "$HOME/.bothan:/root/.bothan" -p 50051:50051 bandprotocol/bothan-api:v0.0.1-beta.1)
+sudo docker pull bandprotocol/bothan-api:v0.1.0
+CONTAINER_ID=$(sudo docker run --restart always --log-opt max-size=50m --log-opt max-file=5 -d --name bothan -v "$HOME/.bothan:/root/.bothan" -p 127.0.0.1:50051:50051 bandprotocol/bothan-api:v0.1.0)
 ```
 
 ### Step 4.3: Save your Private Key
